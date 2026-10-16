@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Autonomous Sailboat · Farhad Foroutan</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="An Arduino sailboat that steers and trims itself to GPS waypoints, tested on real water.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<nav class="nav" aria-label="Main"><div class="wrap">
+<a class="brand" href="../index.html#top">farhad_foroutan</a>
+<ul><li><a href="../index.html#projects">/projects</a></li><li><a href="../index.html#experience">/experience</a></li><li><a href="../index.html#skills">/skills</a></li><li><a href="../index.html#contact">/contact</a></li>
+<li><a href="https://github.com/M-Foroutan-M" target="_blank" rel="noopener" aria-label="GitHub profile">github ↗</a></li></ul>
+</div></nav>
+<main class="wrap">
+<header class="p-head">
+<a class="back" href="../index.html#projects">← all projects</a>
+<div class="eyebrow">Embedded control · Field test · Aston University · Academic project</div>
+<h1>Autonomous Sailboat</h1>
+<p class="lede">A model sailboat that sails itself to GPS waypoints. An Arduino reads GPS, compass heading and wind direction, works out the bearing and the wind angle relative to the boat, and adjusts rudder and sail in a closed loop. Every run is logged to an SD card for analysis.</p>
+<div class="btns"><a class="btn primary" href="https://github.com/M-Foroutan-M/autonmous_sailboat" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub repo</a></div>
+</header>
+<figure class="p-visual"><img src="../assets/img/sailboat-water.jpg" alt="Water test on the canal"><figcaption class="cap">Water test on the canal</figcaption></figure>
+<div class="metrics"><div><b>GPS</b><span>waypoint navigation with bearing and distance to target</span></div><div><b>2</b><span>closed-loop actuators: rudder and sail</span></div><div><b>Real water</b><span>validated after dry-land tests</span></div></div>
+<section class="sec"><div class="sec-head"><code>/how</code><h2>How it works</h2></div><div class="notes"><div><h3>Sense</h3><p>GPS position, CMPS12 compass heading and Davis wind direction and speed sensors are read every loop.</p></div><div><h3>Decide</h3><p>The controller computes the bearing and distance to the next waypoint and the relative wind angle.</p></div><div><h3>Act</h3><p>Servos set rudder angle to hold course and sail angle to suit the wind, closing the loop.</p></div><div><h3>Log</h3><p>Position, heading, bearing, wind and actuator positions are written to SD card, then plotted after each run.</p></div></div></section>
+<section class="sec"><div class="sec-head"><code>/gallery</code><h2>Gallery</h2></div><div class="gallery"><figure><a href="../assets/img/sailboat-telemetry.jpg" target="_blank" rel="noopener"><img src="../assets/img/sailboat-telemetry.jpg" alt="Logged distance to waypoint, rudder and sail angle" loading="lazy" class=contain></a><figcaption>Logged distance to waypoint, rudder and sail angle</figcaption></figure></div></section>
+<section class="sec"><div class="sec-head"><code>/stack</code><h2>Tools</h2></div><div class="chips"><span>Arduino</span><span>C++</span><span>TinyGPSPlus</span><span>CMPS12 compass</span><span>Davis wind sensors</span><span>Servo control</span><span>SD logging</span></div></section>
+<section class="sec"><nav class="pager" aria-label="More projects">
+<a href="cold-chain-iot.html"><span>← previous</span>Cold-Chain Sensor Hub</a>
+<a class="next" href="acc-research.html"><span>next →</span>Adaptive Cruise Control Research</a>
+</nav></section>
+<footer>© 2026 Farhad Foroutan · <a href="../index.html">home</a></footer>
+</main>
+
+</body>
+</html>

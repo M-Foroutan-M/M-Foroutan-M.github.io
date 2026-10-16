@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Adaptive Cruise Control Research · Farhad Foroutan</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="An ACC strategy that adapts following distance and braking to road condition and lateral motion.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<nav class="nav" aria-label="Main"><div class="wrap">
+<a class="brand" href="../index.html#top">farhad_foroutan</a>
+<ul><li><a href="../index.html#projects">/projects</a></li><li><a href="../index.html#experience">/experience</a></li><li><a href="../index.html#skills">/skills</a></li><li><a href="../index.html#contact">/contact</a></li>
+<li><a href="https://github.com/M-Foroutan-M" target="_blank" rel="noopener" aria-label="GitHub profile">github ↗</a></li></ul>
+</div></nav>
+<main class="wrap">
+<header class="p-head">
+<a class="back" href="../index.html#projects">← all projects</a>
+<div class="eyebrow">Vehicle dynamics · Published · Dynamics &amp; Control Lab, Shiraz University · 2022–2024</div>
+<h1>Adaptive Cruise Control Research</h1>
+<p class="lede">At Shiraz University&#x27;s Dynamics and Control Lab I developed an adaptive cruise control strategy that considers road condition and lateral motion, not only the gap to the car ahead. It became my BSc thesis and led to two peer-reviewed papers on ADAS, motion planning and control.</p>
+<div class="btns"><a class="btn" href="https://doi.org/10.22060/ajme.2024.22878.6081" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 1h6.5L13 4.5V15H3V1zm6 1.5V5h2.5L9 2.5zM5 8h6v1.2H5V8zm0 2.6h6v1.2H5v-1.2z"/></svg>Read the paper</a><a class="btn" href="https://scholar.google.com/citations?user=LDjci9gAAAAJ&hl=en" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 1h6.5L13 4.5V15H3V1zm6 1.5V5h2.5L9 2.5zM5 8h6v1.2H5V8zm0 2.6h6v1.2H5v-1.2z"/></svg>Google Scholar</a></div>
+</header>
+<figure class="p-visual"><canvas id="acc" width="1280" height="720" aria-label="Adaptive Cruise Control Research interactive visual"></canvas><div class="controls"><span>road</span><button data-group="acc" data-value="dry" aria-pressed="true">dry</button><button data-group="acc" data-value="wet" aria-pressed="false">wet</button><button data-group="acc" data-value="icy" aria-pressed="false">icy</button><span class="hint">Interactive sketch of the idea, not the published model</span></div></figure>
+<div class="metrics"><div><b>~40%</b><span>lower peak deceleration when following</span></div><div><b>10%</b><span>better fuel efficiency</span></div><div><b>2</b><span>peer-reviewed papers</span></div></div>
+<section class="sec"><div class="sec-head"><code>/how</code><h2>How it works</h2></div><div class="notes"><div><h3>Road-aware gap</h3><p>Following distance and braking force adapt to road surface and weather, so the car keeps a longer gap on wet or icy roads.</p></div><div><h3>Gentler following</h3><p>A new tail-following method and throttle controller cut maximum deceleration by about 40% on average and reduce brake use.</p></div><div><h3>Comfort in corners</h3><p>Lateral motion is part of the comfort objective, which also produced a 10% gain in fuel efficiency.</p></div><div><h3>Publication</h3><p>Foroutan Moharrami, M. &amp; Mohammadi, M. A New Adaptive Cruise Control Strategy Considering Road Conditions. AUT Journal of Mechanical Engineering, 7(4), 355–366.</p></div></div></section>
+
+<section class="sec"><div class="sec-head"><code>/stack</code><h2>Tools</h2></div><div class="chips"><span>MATLAB</span><span>Simulink</span><span>Vehicle dynamics</span><span>Control design</span><span>ADAS</span><span>Sensor fusion</span></div></section>
+<section class="sec"><nav class="pager" aria-label="More projects">
+<a href="sailboat.html"><span>← previous</span>Autonomous Sailboat</a>
+<a class="next" href="heating-table.html"><span>next →</span>Closed-Loop Heating Table</a>
+</nav></section>
+<footer>© 2026 Farhad Foroutan · <a href="../index.html">home</a></footer>
+</main>
+<script src="../assets/visuals.js"></script>
+</body>
+</html>

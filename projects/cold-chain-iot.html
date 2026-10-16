@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cold-Chain Sensor Hub · Farhad Foroutan</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="A headless Raspberry Pi box for refrigerated vans: nine sensors, 4G uplink, recovers on its own.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<nav class="nav" aria-label="Main"><div class="wrap">
+<a class="brand" href="../index.html#top">farhad_foroutan</a>
+<ul><li><a href="../index.html#projects">/projects</a></li><li><a href="../index.html#experience">/experience</a></li><li><a href="../index.html#skills">/skills</a></li><li><a href="../index.html#contact">/contact</a></li>
+<li><a href="https://github.com/M-Foroutan-M" target="_blank" rel="noopener" aria-label="GitHub profile">github ↗</a></li></ul>
+</div></nav>
+<main class="wrap">
+<header class="p-head">
+<a class="back" href="../index.html#projects">← all projects</a>
+<div class="eyebrow">Embedded IoT · UKRI-funded · Aston University · 2025–2026</div>
+<h1>Cold-Chain Sensor Hub</h1>
+<p class="lede">An always-on edge computer for refrigerated delivery vans. It reads nine sensors, logs structured telemetry every 5 seconds and pushes it to the cloud over 4G every 30 seconds. It keeps working through signal loss and restarts itself after a crash or power cut.</p>
+<div class="btns"><a class="btn primary" href="https://github.com/M-Foroutan-M/Refrigeration-Sensor-Hub" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub repo</a></div>
+</header>
+<figure class="p-visual"><svg viewBox="0 0 1280 620" role="img" aria-label="Sensor hub data flow: nine sensors on different buses feed a Raspberry Pi, which logs locally and uploads over 4G to the cloud" style="display:block;width:100%;height:auto" font-family="JetBrains Mono, Menlo, monospace">
+<rect width="1280" height="620" fill="#0F1A24"/>
+<style>.f{stroke-dasharray:8 8;animation:d 1.2s linear infinite}@keyframes d{to{stroke-dashoffset:-16}}@media (prefers-reduced-motion:reduce){.f{animation:none}}</style>
+<g font-size="15" fill="#E6ECF1">
+<circle cx="52" cy="60" r="8" fill="#7AA7F0"/><text x="72" y="56">Inside temp + humidity</text><text x="72" y="76" fill="#8CA0B3" font-size="12.5">SHT31 · I2C 0x44</text><path class="f" d="M330 60 C400 60 400 310 470 310" stroke="#7AA7F0" stroke-width="2" fill="none" opacity=".75"/><circle cx="52" cy="132" r="8" fill="#7AA7F0"/><text x="72" y="128">Probe temperature</text><text x="72" y="148" fill="#8CA0B3" font-size="12.5">DS18B20 · 1-Wire</text><path class="f" d="M330 132 C400 132 400 310 470 310" stroke="#7AA7F0" stroke-width="2" fill="none" opacity=".75"/><circle cx="52" cy="204" r="8" fill="#F0705E"/><text x="72" y="200">Door open / closed</text><text x="72" y="220" fill="#8CA0B3" font-size="12.5">reed switch · GPIO17</text><path class="f" d="M330 204 C400 204 400 310 470 310" stroke="#F0705E" stroke-width="2" fill="none" opacity=".75"/><circle cx="52" cy="276" r="8" fill="#5CC77A"/><text x="72" y="272">Vehicle position</text><text x="72" y="292" fill="#8CA0B3" font-size="12.5">GPS · UART NMEA</text><path class="f" d="M330 276 C400 276 400 310 470 310" stroke="#5CC77A" stroke-width="2" fill="none" opacity=".75"/><circle cx="52" cy="348" r="8" fill="#FFC857"/><text x="72" y="344">Outside temp + humidity</text><text x="72" y="364" fill="#8CA0B3" font-size="12.5">SHT31 · I2C 0x45</text><path class="f" d="M330 348 C400 348 400 310 470 310" stroke="#FFC857" stroke-width="2" fill="none" opacity=".75"/><circle cx="52" cy="420" r="8" fill="#FFC857"/><text x="72" y="416">Solar radiation</text><text x="72" y="436" fill="#8CA0B3" font-size="12.5">PYR20 · RS485 Modbus</text><path class="f" d="M330 420 C400 420 400 310 470 310" stroke="#FFC857" stroke-width="2" fill="none" opacity=".75"/><circle cx="52" cy="492" r="8" fill="#5CC77A"/><text x="72" y="488">Mission route + ETA</text><text x="72" y="508" fill="#8CA0B3" font-size="12.5">route service</text><path class="f" d="M330 492 C400 492 400 310 470 310" stroke="#5CC77A" stroke-width="2" fill="none" opacity=".75"/>
+</g>
+<rect x="470" y="220" width="250" height="180" rx="10" fill="#1B2A3A" stroke="#7AA7F0" stroke-width="3"/>
+<text x="495" y="262" fill="#E6ECF1" font-size="22" font-weight="500">Raspberry Pi 4</text>
+<text x="495" y="292" fill="#8CA0B3" font-size="14">config-driven Python</text>
+<text x="495" y="316" fill="#8CA0B3" font-size="14">sample every 5 s</text>
+<text x="495" y="340" fill="#8CA0B3" font-size="14">systemd · self-healing</text>
+<text x="495" y="372" fill="#5CC77A" font-size="14">● running headless</text>
+<path class="f" d="M720 310 H820" stroke="#7AA7F0" stroke-width="3" fill="none"/>
+<rect x="820" y="260" width="170" height="100" rx="8" fill="#13212E" stroke="#3B5470" stroke-width="2"/>
+<text x="840" y="298" fill="#E6ECF1" font-size="17">local log</text>
+<text x="840" y="324" fill="#8CA0B3" font-size="13">JSON Lines</text>
+<text x="840" y="344" fill="#8CA0B3" font-size="13">offline first</text>
+<path class="f" d="M990 310 H1060" stroke="#7AA7F0" stroke-width="3" fill="none"/>
+<text x="994" y="340" fill="#7AA7F0" font-size="13">4G</text>
+<rect x="1060" y="250" width="180" height="120" rx="8" fill="#13212E" stroke="#7AA7F0" stroke-width="2"/>
+<text x="1080" y="292" fill="#E6ECF1" font-size="17">cloud storage</text>
+<text x="1080" y="318" fill="#8CA0B3" font-size="13">rclone sync</text>
+<text x="1080" y="340" fill="#FFC857" font-size="13">every 30 s</text>
+<text x="40" y="580" fill="#8CA0B3" font-size="14">Deployed in refrigerated delivery vans · UKRI-funded project, Aston University</text>
+</svg></figure>
+<div class="metrics"><div><b>9</b><span>heterogeneous sensors on one Raspberry Pi</span></div><div><b>5 s</b><span>sampling, logged as JSON Lines</span></div><div><b>30 s</b><span>cloud sync over 4G LTE</span></div></div>
+<section class="sec"><div class="sec-head"><code>/how</code><h2>How it works</h2></div><div class="notes"><div><h3>Many buses, one pipeline</h3><p>I2C, 1-Wire, UART, GPIO and RS485 Modbus sensors feed a single config-driven Python pipeline. Adding a sensor means editing a config file, not the core code.</p></div><div><h3>Offline first</h3><p>Data is written locally first and uploaded with rclone over a SIM7600 4G modem, so nothing is lost when the van drives through a dead zone.</p></div><div><h3>Zero-touch operation</h3><p>Runs as a systemd service with auto-start, crash recovery and self-healing, so the driver never has to touch it.</p></div><div><h3>Ready for analysis</h3><p>I contributed to the SQL schema that archives sensor and route data for the companion web platform.</p></div></div></section>
+
+<section class="sec"><div class="sec-head"><code>/stack</code><h2>Tools</h2></div><div class="chips"><span>Python</span><span>Raspberry Pi 4</span><span>I2C</span><span>1-Wire</span><span>UART</span><span>RS485 Modbus</span><span>SIM7600 4G</span><span>rclone</span><span>systemd</span><span>SQL</span></div></section>
+<section class="sec"><nav class="pager" aria-label="More projects">
+<a href="imu-glove.html"><span>← previous</span>Wearable IMU Glove</a>
+<a class="next" href="sailboat.html"><span>next →</span>Autonomous Sailboat</a>
+</nav></section>
+<footer>© 2026 Farhad Foroutan · <a href="../index.html">home</a></footer>
+</main>
+
+</body>
+</html>

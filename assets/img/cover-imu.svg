@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="JetBrains Mono, Menlo, monospace">
+<rect width="800" height="500" fill="#0F1A24"/>
+<g stroke="#1C2A38" stroke-width="1"><path d="M0 50H800M0 100H800M0 150H800M0 200H800M0 250H800M0 300H800M0 350H800M0 400H800M0 450H800M50 0V500M100 0V500M150 0V500M200 0V500M250 0V500M300 0V500M350 0V500M400 0V500M450 0V500M500 0V500M550 0V500M600 0V500M650 0V500M700 0V500M750 0V500"/></g>
+<!-- palm -->
+<rect x="150" y="300" width="230" height="150" rx="34" fill="#1B2A3A" stroke="#3B5470" stroke-width="3"/>
+<!-- fingers: base -> mid -> tip, flexing progressively -->
+<g stroke-linecap="round" fill="none" stroke-width="30" stroke="#24384D">
+<path d="M175 305 L170 230 L172 180 L176 140"/>
+<path d="M230 300 L232 205 L240 150 L252 110"/>
+<path d="M285 300 L300 210 L330 165 L362 150"/>
+<path d="M340 305 L370 235 L410 215 L440 225"/>
+</g>
+<path d="M378 380 L440 350 L478 320" stroke="#24384D" stroke-width="32" stroke-linecap="round" fill="none"/>
+<!-- IMUs -->
+<g fill="#0F1A24" stroke="#7AA7F0" stroke-width="3">
+<rect x="160" y="208" width="22" height="22" rx="3"/><rect x="221" y="180" width="22" height="22" rx="3"/><rect x="290" y="198" width="22" height="22" rx="3"/><rect x="358" y="214" width="22" height="22" rx="3"/><rect x="436" y="332" width="22" height="22" rx="3"/><rect x="250" y="360" width="26" height="26" rx="3"/>
+</g>
+<!-- PCA axis on middle finger -->
+<g stroke-width="4" stroke-linecap="round">
+<path d="M301 209 L301 136" stroke="#F0705E"/>
+<path d="M301 209 L248 245" stroke="#5CC77A"/>
+<path d="M301 209 L372 242" stroke="#FFC857" stroke-dasharray="2 9"/>
+</g>
+<path d="M330 185 A40 40 0 0 1 345 222" stroke="#FFC857" stroke-width="3" fill="none"/>
+<text x="384" y="258" fill="#FFC857" font-size="15">PCA axis</text>
+<!-- trace -->
+<g transform="translate(520 120)">
+<rect width="230" height="150" fill="#13212E" stroke="#2A3D52"/>
+<text x="12" y="24" fill="#8CA0B3" font-size="13">flexion · deg</text>
+<path d="M12 120 C40 120 50 50 75 48 C100 46 105 118 130 118 C150 118 160 52 185 50 C205 48 210 110 220 112" stroke="#7AA7F0" stroke-width="3" fill="none"/>
+</g>
+<text x="520" y="320" fill="#E6ECF1" font-size="46" font-weight="500">98%</text>
+<text x="520" y="348" fill="#8CA0B3" font-size="15">finger motion captured</text>
+<text x="520" y="400" fill="#E6ECF1" font-size="46" font-weight="500">6</text>
+<text x="560" y="398" fill="#8CA0B3" font-size="15">IMUs</text>
+</svg>

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Wearable IMU Glove · Farhad Foroutan</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Finger range of motion from six IMUs, using PCA to find each finger&#x27;s real rotation axis.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<nav class="nav" aria-label="Main"><div class="wrap">
+<a class="brand" href="../index.html#top">farhad_foroutan</a>
+<ul><li><a href="../index.html#projects">/projects</a></li><li><a href="../index.html#experience">/experience</a></li><li><a href="../index.html#skills">/skills</a></li><li><a href="../index.html#contact">/contact</a></li>
+<li><a href="https://github.com/M-Foroutan-M" target="_blank" rel="noopener" aria-label="GitHub profile">github ↗</a></li></ul>
+</div></nav>
+<main class="wrap">
+<header class="p-head">
+<a class="back" href="../index.html#projects">← all projects</a>
+<div class="eyebrow">Wearable sensing · Clinical · Aston University · 2026–now</div>
+<h1>Wearable IMU Glove</h1>
+<p class="lede">A six-IMU glove for measuring finger range of motion in clinical hand-function assessment. I built the Python pipeline that turns raw sensor quaternions into joint angles, and a PCA method that finds the axis each finger actually rotates about instead of trusting how the sensor happens to sit on the hand.</p>
+<div class="btns"><span class="note-box">Research in progress. Code is not public yet.</span></div>
+</header>
+<figure class="p-visual"><canvas id="imu" width="1280" height="720" aria-label="Wearable IMU Glove interactive visual"></canvas><div class="controls"><span>show</span><button data-group="imu" data-value="both" aria-pressed="true">both</button><button data-group="imu" data-value="sensor" aria-pressed="false">sensor axis</button><button data-group="imu" data-value="pca" aria-pressed="false">PCA axis</button><span class="hint">Illustration of the method, not study data</span></div></figure>
+<div class="metrics"><div><b>98%</b><span>of finger motion captured on average</span></div><div><b>15,000+</b><span>hand-function recordings processed</span></div><div><b>6</b><span>IMUs, fewer than comparable gloves</span></div></div>
+<section class="sec"><div class="sec-head"><code>/how</code><h2>How it works</h2></div><div class="notes"><div><h3>The problem</h3><p>An IMU strapped to a finger never lines up perfectly with the joint. Measuring rotation about the sensor&#x27;s own axis underestimates how far the finger really bends.</p></div><div><h3>PCA on quaternions</h3><p>During each movement the finger rotates mostly about one direction. PCA on the quaternion data recovers that functional axis for every finger and participant.</p></div><div><h3>Pipeline at scale</h3><p>A Python pipeline processes 15,000+ recordings from human participants into per-finger range-of-motion values ready for clinical analysis.</p></div><div><h3>Fewer sensors</h3><p>Because the axis is learned from data, the glove captures on average 98% of finger motion with fewer sensors than comparable designs.</p></div></div></section>
+
+<section class="sec"><div class="sec-head"><code>/stack</code><h2>Tools</h2></div><div class="chips"><span>Python</span><span>NumPy</span><span>SciPy</span><span>Quaternions</span><span>PCA</span><span>IMU</span><span>Signal processing</span></div></section>
+<section class="sec"><nav class="pager" aria-label="More projects">
+<a href="multi-camera.html"><span>← previous</span>360° Multi-Camera Platform</a>
+<a class="next" href="cold-chain-iot.html"><span>next →</span>Cold-Chain Sensor Hub</a>
+</nav></section>
+<footer>© 2026 Farhad Foroutan · <a href="../index.html">home</a></footer>
+</main>
+<script src="../assets/visuals.js"></script>
+</body>
+</html>

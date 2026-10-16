@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Closed-Loop Heating Table · Farhad Foroutan</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Zonal PID control of a 6×8 heated surface with gain scheduling and 70% fewer sensor connections.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<nav class="nav" aria-label="Main"><div class="wrap">
+<a class="brand" href="../index.html#top">farhad_foroutan</a>
+<ul><li><a href="../index.html#projects">/projects</a></li><li><a href="../index.html#experience">/experience</a></li><li><a href="../index.html#skills">/skills</a></li><li><a href="../index.html#contact">/contact</a></li>
+<li><a href="https://github.com/M-Foroutan-M" target="_blank" rel="noopener" aria-label="GitHub profile">github ↗</a></li></ul>
+</div></nav>
+<main class="wrap">
+<header class="p-head">
+<a class="back" href="../index.html#projects">← all projects</a>
+<div class="eyebrow">Control systems · Simulation · Academic project</div>
+<h1>Closed-Loop Heating Table</h1>
+<p class="lede">A MATLAB/Simulink model of a heated table sensed by a 6×8 grid and controlled zone by zone. Each zone runs its own PID loop with adaptive gain scheduling, and a shared sensing layout cut the number of sensor interconnections by 70%.</p>
+<div class="btns"><span class="note-box">Coursework project. Simulink files available on request.</span></div>
+</header>
+<figure class="p-visual"><canvas id="heat" width="1280" height="720" aria-label="Closed-Loop Heating Table interactive visual"></canvas><div class="controls"><span>gain scheduling</span><button data-group="heat" data-value="on" aria-pressed="true">on</button><button data-group="heat" data-value="off" aria-pressed="false">off</button><button id="heat-reset">reset to cold</button><span class="hint">Live simulation. Click a cell to cool it</span></div></figure>
+<div class="metrics"><div><b>6 × 8</b><span>spatial sensing grid</span></div><div><b>Zonal PID</b><span>with adaptive gain scheduling</span></div><div><b>−70%</b><span>sensor interconnections</span></div></div>
+<section class="sec"><div class="sec-head"><code>/how</code><h2>How it works</h2></div><div class="notes"><div><h3>Spatial sensing</h3><p>Temperature is measured on a 6×8 grid so hot and cold spots across the surface are visible, not just one average.</p></div><div><h3>Distributed control</h3><p>The surface is split into zones, each with its own PID loop, so a disturbance in one corner is corrected locally.</p></div><div><h3>Gain scheduling</h3><p>Controller gains adapt with operating temperature to keep the response fast without overshoot across the range.</p></div><div><h3>Simpler wiring</h3><p>A shared sensing layout cut sensor interconnections by 70% compared with wiring every point individually.</p></div></div></section>
+
+<section class="sec"><div class="sec-head"><code>/stack</code><h2>Tools</h2></div><div class="chips"><span>MATLAB</span><span>Simulink</span><span>PID</span><span>Gain scheduling</span><span>Thermal modelling</span></div></section>
+<section class="sec"><nav class="pager" aria-label="More projects">
+<a href="acc-research.html"><span>← previous</span>Adaptive Cruise Control Research</a>
+<a class="next" href="jackal.html"><span>next →</span>Jackal Autonomous Navigation</a>
+</nav></section>
+<footer>© 2026 Farhad Foroutan · <a href="../index.html">home</a></footer>
+</main>
+<script src="../assets/visuals.js"></script>
+</body>
+</html>
