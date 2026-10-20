@@ -4,8 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Jackal Autonomous Navigation · Farhad Foroutan</title>
-<meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="A Clearpath Jackal rebuilt to map, localise and drive itself to goals, then record everything it senses.">
+<meta name="description" content="A Clearpath Jackal taken from bare platform to an autonomous ROS 2 robot that maps, localises, navigates and records synchronised multi-modal data.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="../assets/site.css">
 </head>
@@ -15,19 +14,91 @@
 <ul><li><a href="../index.html#projects">/projects</a></li><li><a href="../index.html#experience">/experience</a></li><li><a href="../index.html#skills">/skills</a></li><li><a href="../index.html#contact">/contact</a></li>
 <li><a href="https://github.com/M-Foroutan-M" target="_blank" rel="noopener" aria-label="GitHub profile">github ↗</a></li></ul>
 </div></nav>
+
 <main class="wrap">
 <header class="p-head">
 <a class="back" href="../index.html#projects">← all projects</a>
 <div class="eyebrow">Mobile robotics · ROS 2 · Aston University · 2025–2026</div>
 <h1>Jackal Autonomous Navigation</h1>
-<p class="lede">I rebuilt a Clearpath Jackal as a ROS 2 Humble platform that maps a building with LiDAR, localises itself on the saved map and drives to goals on its own. Every run can be recorded the same way each time, which makes it a repeatable data-collection robot rather than a demo.</p>
-<div class="btns"><a class="btn primary" href="https://github.com/M-Foroutan-M/jackal_clearpath" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub repo</a><a class="btn" href="https://drive.google.com/drive/folders/1SuZDrliUXXNWbA5bpu4QSsQ0KeXi8SNo?usp=drive_link" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1C4.1 1 1 2.3 1 4v8c0 1.7 3.1 3 7 3s7-1.3 7-3V4c0-1.7-3.1-3-7-3zm0 1.5c3.3 0 5.5 1 5.5 1.5S11.3 5.5 8 5.5 2.5 4.5 2.5 4 4.7 2.5 8 2.5zM2.5 6c1.3.7 3.3 1 5.5 1s4.2-.3 5.5-1v2c0 .5-2.2 1.5-5.5 1.5S2.5 8.5 2.5 8V6zm0 4c1.3.7 3.3 1 5.5 1s4.2-.3 5.5-1v2c0 .5-2.2 1.5-5.5 1.5S2.5 12.5 2.5 12v-2z"/></svg>Sample dataset</a></div>
+<p class="lede">I took a Clearpath Jackal from a bare platform to a robot that runs its own data-collection missions. I installed the operating system and drivers, set up its sensors, configured mapping, localisation and autonomous navigation in ROS 2 Humble, and cut the on-board CPU load by about a third. On top of that I built a mission orchestrator that records synchronised, multi-modal datasets on every run, and a communication stack that links the Jackal to a tethered drone.</p>
+<div class="btns">
+<a class="btn primary" href="https://github.com/M-Foroutan-M/jackal_clearpath" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>Jackal ROS 2 repo</a>
+<a class="btn" href="https://github.com/M-Foroutan-M/tethered_jackal_communication" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>Tethered link repo</a>
+</div>
 </header>
-<div class="duo"><figure class="p-visual"><img src="../assets/img/jackal-outdoor.jpg" alt="Jackal with the camera ring on Aston campus"><figcaption class="cap">Jackal with the camera ring on Aston campus</figcaption></figure><figure class="p-visual"><img src="../assets/img/jackal-corridor.jpg" alt="Bring-up and mapping in a university corridor"><figcaption class="cap">Bring-up and mapping in a university corridor</figcaption></figure></div>
-<div class="metrics"><div><b>−30%</b><span>CPU load after tuning the navigation stack</span></div><div><b>3</b><span>operating modes: mapping, navigation, mission recording</span></div><div><b>CAN + serial</b><span>real-time pose link to a tethered drone winch</span></div></div>
-<section class="sec"><div class="sec-head"><code>/how</code><h2>How it works</h2></div><div class="notes"><div><h3>Map, localise, navigate</h3><p>SICK TIM 2D LiDAR with SLAM Toolbox builds the map. AMCL and Nav2 localise on it and drive to goals set in RViz.</p></div><div><h3>Missions that record themselves</h3><p>A goal orchestrator sends the robot to a goal, starts rosbag2 and triggers the camera computers over SSH, so each run is captured the same way.</p></div><div><h3>Tethered robot–drone link</h3><p>A CAN bus and serial communication stack streams the robot&#x27;s pose to embedded winch hardware for a tethered Jackal–drone system.</p></div><div><h3>Lean on-board compute</h3><p>Profiling and trimming the stack cut CPU load by 30%, leaving headroom for perception and recording.</p></div></div></section>
-<section class="sec"><div class="sec-head"><code>/gallery</code><h2>Gallery</h2></div><div class="gallery"><figure><a href="../assets/img/jackal-lab.jpg" target="_blank" rel="noopener"><img src="../assets/img/jackal-lab.jpg" alt="Lab testing before deployment" loading="lazy"></a><figcaption>Lab testing before deployment</figcaption></figure><figure><a href="../assets/img/jackal-network.jpg" target="_blank" rel="noopener"><img src="../assets/img/jackal-network.jpg" alt="Remote access and SSH communication architecture" loading="lazy" class=contain></a><figcaption>Remote access and SSH communication architecture</figcaption></figure><figure><a href="../assets/img/jackal-outdoor.jpg" target="_blank" rel="noopener"><img src="../assets/img/jackal-outdoor.jpg" alt="Outdoor run with the full sensor payload" loading="lazy"></a><figcaption>Outdoor run with the full sensor payload</figcaption></figure></div></section>
-<section class="sec"><div class="sec-head"><code>/stack</code><h2>Tools</h2></div><div class="chips"><span>ROS 2 Humble</span><span>Nav2</span><span>SLAM Toolbox</span><span>AMCL</span><span>SICK TIM LiDAR</span><span>TF</span><span>rosbag2</span><span>RViz</span><span>Gazebo</span><span>CAN bus</span><span>Ubuntu 22.04</span></div></section>
+
+<!-- 1. Bring-up (no image) -->
+<section class="feature solo">
+<div class="feature-text">
+<div class="kicker">Setup</div>
+<h3>Platform bring-up</h3>
+</div>
+<div class="feature-text">
+<p>I installed Ubuntu 22.04 and ROS 2 Humble on the Jackal's on-board computer, set up the Clearpath drivers and robot configuration, and brought up the SICK TIM 2D LiDAR and IMU with the correct TF frames. A namespaced robot setup and a fixed network configuration mean every sensor publishes reliably from boot.</p>
+<div class="chips"><span>Ubuntu 22.04</span><span>ROS 2 Humble</span><span>Clearpath drivers</span><span>SICK TIM LiDAR</span><span>IMU</span><span>TF</span><span>Netplan</span></div>
+</div>
+</section>
+
+<!-- 2. Mapping, localisation, navigation -->
+<section class="feature">
+<figure class="feature-media">
+<a href="../assets/img/jackal-rviz-map.png" target="_blank" rel="noopener"><img src="../assets/img/jackal-rviz-map.png" alt="RViz showing the Jackal localised on a saved occupancy map with live LiDAR points overlaid"></a>
+<div class="pair">
+<a href="../assets/img/jackal-corridor.jpg" target="_blank" rel="noopener"><img src="../assets/img/jackal-corridor.jpg" alt="Jackal at a doorway in a university corridor" loading="lazy"></a>
+<a href="../assets/img/jackal-lab.jpg" target="_blank" rel="noopener"><img src="../assets/img/jackal-lab.jpg" alt="Jackal during lab testing" loading="lazy"></a>
+</div>
+<figcaption>Live LiDAR scan matched to the saved map in RViz · corridor and doorway trials · lab testing</figcaption>
+</figure>
+<div class="feature-text">
+<div class="kicker">Autonomy</div>
+<h3>Mapping, localisation &amp; navigation</h3>
+<p>I mapped indoor spaces with SLAM Toolbox and saved them as occupancy grids. On a saved map, AMCL localises the robot from its LiDAR scans and Nav2 plans and follows a path to any goal set in RViz, through corridors and doorways.</p>
+<p>Maps can be switched at launch or while the robot is running, so the same setup works across different buildings.</p>
+</div>
+</section>
+
+<!-- 3. CPU optimisation -->
+<section class="feature flip">
+<figure class="feature-media">
+<a href="../assets/img/jackal-cpu-htop.png" target="_blank" rel="noopener"><img src="../assets/img/jackal-cpu-htop.png" alt="htop before and after optimisation: four cores drop from about 92% to about 60%" loading="lazy"></a>
+<figcaption>htop before (top) and after (bottom) optimisation</figcaption>
+</figure>
+<div class="feature-text">
+<div class="kicker">Performance</div>
+<h3>CPU load optimisation</h3>
+<p>With the full navigation stack running, all four CPU cores sat above 90%, which made localisation and planning unstable.</p>
+<p>After profiling and trimming the stack, every core runs at around 60% and the load average fell from 14.1 to 6.6. The robot now navigates smoothly and has headroom left for recording.</p>
+</div>
+</section>
+
+<!-- 4. Multi-modal data collection -->
+<section class="feature">
+<figure class="feature-media">
+<a href="../assets/img/jackal-outdoor.jpg" target="_blank" rel="noopener"><img src="../assets/img/jackal-outdoor.jpg" alt="Jackal with its full sensor payload on Aston University campus" loading="lazy"></a>
+<figcaption>Outdoor data-collection run on Aston University campus</figcaption>
+</figure>
+<div class="feature-text">
+<div class="kicker">Data</div>
+<h3>Synchronised multi-modal data collection</h3>
+<p>A mission orchestrator turns every navigation goal into a complete, synchronised recording. It intercepts the goal from RViz, starts the external recording devices over SSH, waits until they are ready, starts rosbag2, and only then hands the goal to Nav2. When the robot arrives, everything shuts down in reverse order.</p>
+<p>Each run captures LiDAR, odometry, IMU, TF, localisation and planner data into its own timestamped folder, so runs are repeatable and nothing gets overwritten. Joystick and keyboard modes record the same way while the robot is driven by hand, without ever touching its velocity commands.</p>
+</div>
+</section>
+
+<!-- 5. Tethered link (no image) -->
+<section class="feature solo">
+<div class="feature-text">
+<div class="kicker">Integration</div>
+<h3>Tethered robot–drone link</h3>
+</div>
+<div class="feature-text">
+<p>A separate communication stack lets the Jackal coordinate with a tethered drone and its winch. The robot's pose and velocity go out over CAN bus, the drone's pose is reconstructed from incoming CAN frames, and the robot's localised position streams over serial to the embedded winch controller in real time.</p>
+<div class="chips"><span>CAN bus</span><span>Serial</span><span>TF</span><span>AMCL</span><span>Python</span></div>
+<p class="more-link"><a href="https://github.com/M-Foroutan-M/tethered_jackal_communication" target="_blank" rel="noopener">View the tethered link code →</a></p>
+</div>
+</section>
+
+<section class="sec"><div class="sec-head"><code>/stack</code><h2>Tools</h2></div><div class="chips"><span>ROS 2 Humble</span><span>Ubuntu 22.04</span><span>Nav2</span><span>SLAM Toolbox</span><span>AMCL</span><span>SICK TIM LiDAR</span><span>TF</span><span>rosbag2</span><span>RViz</span><span>SSH</span><span>CAN bus</span><span>Python</span></div></section>
 <section class="sec"><nav class="pager" aria-label="More projects">
 <a href="heating-table.html"><span>← previous</span>Closed-Loop Heating Table</a>
 <a class="next" href="multi-camera.html"><span>next →</span>360° Multi-Camera Platform</a>
@@ -35,6 +106,5 @@
 <footer>© 2026 Farhad Foroutan · <a href="../index.html">home</a></footer>
 </main>
 <script src="../assets/bg.js"></script>
-
 </body>
 </html>
