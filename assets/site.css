@@ -260,3 +260,20 @@ h2{font-size:1.9rem}
   .tool-group{border-left:0;border-top:1px solid var(--line)}
   .tool-group:first-child{border-top:0}
 }
+
+/* project page: summary next to an image */
+.p-intro{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:40px;align-items:center}
+.p-intro > *{min-width:0}
+.p-intro .lede{max-width:62ch;margin-bottom:22px}
+.p-head-media{margin:0;padding:18px;border:1px solid var(--line);background:radial-gradient(circle at 50% 60%,rgba(122,167,240,.16),transparent 70%),var(--surface)}
+.p-head-media img{width:100%;max-height:300px;object-fit:contain}
+.p-head-media figcaption{margin-top:8px;font-family:var(--f-mono);font-size:11px;color:var(--muted);text-align:right}
+.p-head-media figcaption a{color:var(--muted)}
+.p-head-media figcaption a:hover{color:var(--accent)}
+@media (max-width:760px){.p-intro{grid-template-columns:minmax(0,1fr);gap:24px}}
+
+/* home card: product image with credit */
+.card .thumb.contain{position:relative;display:flex;align-items:center;justify-content:center;padding:16px;background:radial-gradient(circle at 50% 60%,rgba(122,167,240,.18),transparent 70%),var(--panel)}
+.card .thumb.contain img{object-fit:contain}
+.thumb .credit{position:absolute;right:8px;bottom:6px;z-index:2;font-family:var(--f-mono);font-size:10.5px;color:var(--muted);text-decoration:none;background:rgba(7,11,16,.7);padding:2px 6px}
+.thumb .credit:hover{color:var(--accent)}
