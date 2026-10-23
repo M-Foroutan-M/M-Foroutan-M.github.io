@@ -306,5 +306,4 @@ h2{font-size:1.9rem}
 .feature-media .pair.tall{align-items:start}
 .feature-media .pair.tall img{aspect-ratio:auto;height:auto;object-fit:contain}
 
-/* first two project cards: taller thumbnails */
-.card.big .thumb{aspect-ratio:1837/1597}
+.card.big .thumb{aspect-ratio:1837/1597 !important}
