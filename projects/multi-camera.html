@@ -4,8 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>360° Multi-Camera Platform · Farhad Foroutan</title>
-<meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="A ring of 8 fisheye cameras and 4 Jetsons riding on the Jackal, synchronised to under 2 ms, plus 360° human tracking.">
+<meta name="description" content="A mobile 360° recording system of eight synchronised fisheye cameras and four NVIDIA Jetsons, plus a ROS 2 pipeline that finds and tracks people in 360° video.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="../assets/site.css">
 </head>
@@ -15,19 +14,126 @@
 <ul><li><a href="../index.html#projects">/projects</a></li><li><a href="../index.html#experience">/experience</a></li><li><a href="../index.html#skills">/skills</a></li><li><a href="../index.html#contact">/contact</a></li>
 <li><a href="https://github.com/M-Foroutan-M" target="_blank" rel="noopener" aria-label="GitHub profile">github ↗</a></li></ul>
 </div></nav>
+
 <main class="wrap">
 <header class="p-head">
 <a class="back" href="../index.html#projects">← all projects</a>
-<div class="eyebrow">Perception · MSc dissertation · Aston University · 2025–2026</div>
+<div class="eyebrow">Perception · MSc dissertation, Best Dissertation Award · Aston University · 2025–2026</div>
 <h1>360° Multi-Camera Platform</h1>
-<p class="lede">For my MSc dissertation (Best Dissertation Award) I designed a roof-mounted ring of eight fisheye cameras and four NVIDIA Jetsons that rides on the Jackal and records synchronised 360° video for social robot navigation benchmarking. Alongside it I built a ROS 2 pipeline that finds people in 360° images and estimates where they are and which way they face.</p>
-<div class="btns"><a class="btn primary" href="https://github.com/M-Foroutan-M/jackal_clearpath" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>Platform repo</a><a class="btn primary" href="https://github.com/M-Foroutan-M/human_tracking-insta360" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>360° tracking repo</a><a class="btn" href="https://drive.google.com/drive/folders/1SuZDrliUXXNWbA5bpu4QSsQ0KeXi8SNo?usp=drive_link" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1C4.1 1 1 2.3 1 4v8c0 1.7 3.1 3 7 3s7-1.3 7-3V4c0-1.7-3.1-3-7-3zm0 1.5c3.3 0 5.5 1 5.5 1.5S11.3 5.5 8 5.5 2.5 4.5 2.5 4 4.7 2.5 8 2.5zM2.5 6c1.3.7 3.3 1 5.5 1s4.2-.3 5.5-1v2c0 .5-2.2 1.5-5.5 1.5S2.5 8.5 2.5 8V6zm0 4c1.3.7 3.3 1 5.5 1s4.2-.3 5.5-1v2c0 .5-2.2 1.5-5.5 1.5S2.5 12.5 2.5 12v-2z"/></svg>Sample dataset</a></div>
+<div class="p-intro">
+<div>
+<p class="lede">The goal of this project was a system that records everything around a mobile robot in full 360°, indoors and outdoors, and then makes sense of those recordings. For the hardware, I designed and built a ring of eight fisheye cameras and four NVIDIA Jetsons that rides on the Jackal, runs from its own battery and keeps all eight video streams synchronised to within 2 ms. For the software, I built a ROS 2 pipeline that finds people in 360° video and estimates where each one stands and which way they face.</p>
+<div class="btns">
+<a class="btn primary" href="https://github.com/M-Foroutan-M/jackal_clearpath" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>Recording system repo</a>
+<a class="btn" href="https://github.com/M-Foroutan-M/human_tracking-insta360" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>360° tracking repo</a>
+<a class="btn" href="https://drive.google.com/drive/folders/1SuZDrliUXXNWbA5bpu4QSsQ0KeXi8SNo?usp=drive_link" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1C4.1 1 1 2.3 1 4v8c0 1.7 3.1 3 7 3s7-1.3 7-3V4c0-1.7-3.1-3-7-3zm0 1.5c3.3 0 5.5 1 5.5 1.5S11.3 5.5 8 5.5 2.5 4.5 2.5 4 4.7 2.5 8 2.5zM2.5 6c1.3.7 3.3 1 5.5 1s4.2-.3 5.5-1v2c0 .5-2.2 1.5-5.5 1.5S2.5 8.5 2.5 8V6zm0 4c1.3.7 3.3 1 5.5 1s4.2-.3 5.5-1v2c0 .5-2.2 1.5-5.5 1.5S2.5 12.5 2.5 12v-2z"/></svg>Sample dataset</a>
+</div>
+</div>
+<figure class="p-head-media"><img src="../assets/img/camring-robot-1.jpg" alt="Orange ring of eight fisheye cameras mounted on top of the Jackal robot"></figure>
+</div>
 </header>
-<div class="duo"><figure class="p-visual"><img src="../assets/img/camring-robot-1.jpg" alt="Camera ring mounted on the Jackal"><figcaption class="cap">Camera ring mounted on the Jackal</figcaption></figure><figure class="p-visual"><img src="../assets/img/camring-render.jpg" alt="3D-printed ring with eight fisheye cameras"><figcaption class="cap">3D-printed ring with eight fisheye cameras</figcaption></figure></div>
-<div class="metrics"><div><b>&lt; 2 ms</b><span>timestamp offset between cameras</span></div><div><b>8 · 4</b><span>fisheye cameras · NVIDIA Jetsons</span></div><div><b>11 steps</b><span>from an RViz goal to synchronised recordings, automated</span></div></div>
-<section class="sec"><div class="sec-head"><code>/how</code><h2>How it works</h2></div><div class="notes"><div><h3>Camera ring hardware</h3><p>Eight ELP fisheye cameras on a 3D-printed ring, a Jetson AGX Orin and Xavier NX units, a network switch and a 48 → 12 → 5 V power chain, all carried by the robot.</p></div><div><h3>Synchronised capture</h3><p>Every camera is time-aligned to within 2 ms, so frames from all eight views can be stitched and compared with LiDAR and odometry.</p></div><div><h3>One click, full dataset</h3><p>An 11-step pipeline links the RViz goal, Nav2 execution, SSH triggering of the Jetsons and rosbag2, so a whole recording session starts from one goal.</p></div><div><h3>Finding people in 360°</h3><p>Equirectangular frames from an Insta360 are reprojected into perspective views, YOLO detects people, and each person gets a ground-plane position, body orientation and a stable track ID.</p></div></div></section>
-<section class="sec"><div class="sec-head"><code>/gallery</code><h2>Gallery</h2></div><div class="gallery"><figure><a href="../assets/img/camring-robot-2.jpg" target="_blank" rel="noopener"><img src="../assets/img/camring-robot-2.jpg" alt="Wiring and Jetson stack under the ring" loading="lazy"></a><figcaption>Wiring and Jetson stack under the ring</figcaption></figure><figure><a href="../assets/img/camring-architecture.jpg" target="_blank" rel="noopener"><img src="../assets/img/camring-architecture.jpg" alt="High-level system architecture" loading="lazy" class=contain></a><figcaption>High-level system architecture</figcaption></figure><figure><a href="../assets/img/camring-power.jpg" target="_blank" rel="noopener"><img src="../assets/img/camring-power.jpg" alt="Power distribution for cameras and Jetsons" loading="lazy" class=contain></a><figcaption>Power distribution for cameras and Jetsons</figcaption></figure></div></section>
-<section class="sec"><div class="sec-head"><code>/stack</code><h2>Tools</h2></div><div class="chips"><span>NVIDIA Jetson</span><span>ROS 2</span><span>YOLO</span><span>OpenCV</span><span>RTSP</span><span>py360convert</span><span>rosbag2</span><span>SSH</span><span>3D printing</span></div></section>
+
+<!-- ============ PART 1: RECORDING SYSTEM ============ -->
+<section class="part-head">
+<div class="kicker">Part 1 · Hardware</div>
+<h2>The recording system</h2>
+<p>A self-contained 360° camera rig that any mobile robot can carry, indoors or outdoors.</p>
+</section>
+
+<section class="feature">
+<figure class="feature-media">
+<div class="pair tall">
+<a href="../assets/img/camring-render.jpg" target="_blank" rel="noopener"><img src="../assets/img/camring-render.jpg" alt="3D-printed camera ring with fisheye cameras" loading="lazy"></a>
+<a href="../assets/img/camring-robot-2.jpg" target="_blank" rel="noopener"><img src="../assets/img/camring-robot-2.jpg" alt="Jetson stack and wiring under the camera ring" loading="lazy"></a>
+</div>
+<figcaption>3D-printed camera ring · Jetson stack and wiring underneath</figcaption>
+</figure>
+<div class="feature-text">
+<div class="kicker">Cameras</div>
+<h3>Eight cameras, one ring</h3>
+<p>Eight ELP fisheye cameras sit on a 3D-printed ring above the robot, angled so that neighbouring views overlap and together cover the full 360°.</p>
+<p>Four NVIDIA Jetsons sit underneath, each handling two cameras: one Jetson AGX Orin and three Jetson Xavier NX units. Every camera records 1080p at 30 fps.</p>
+</div>
+</section>
+
+<section class="feature flip">
+<figure class="feature-media">
+<a href="../assets/img/camring-power.jpg" target="_blank" rel="noopener"><img src="../assets/img/camring-power.jpg" alt="Power wiring diagram: battery, 48 to 12 V converters, Jetsons, 12 to 5 V converter and network switch" loading="lazy"></a>
+<figcaption>Power distribution for the cameras, Jetsons and switch</figcaption>
+</figure>
+<div class="feature-text">
+<div class="kicker">Power &amp; wiring</div>
+<h3>Runs on its own power</h3>
+<p>The rig carries its own battery pack, so it works wherever the robot can drive, with no cables to a wall socket. 48 → 12 V converters feed the four Jetsons, and a 12 → 5 V converter powers the network switch.</p></div>
+</section>
+
+<section class="feature">
+<figure class="feature-media">
+<a href="../assets/img/camring-8cam-frames.jpg" target="_blank" rel="noopener"><img src="../assets/img/camring-8cam-frames.jpg" alt="Eight synchronised fisheye frames from the camera ring, tiled in a 4 by 2 grid" loading="lazy"></a>
+<figcaption>One synchronised moment from all eight cameras, as recorded</figcaption>
+</figure>
+<div class="feature-text">
+<div class="kicker">Network &amp; sync</div>
+<h3>Eight streams, one timeline</h3>
+<p>The Jetsons are connected through a network switch on a dedicated wired network. The three Xavier NX units stream their cameras over RTSP to the AGX Orin, which also reads its own two cameras over USB.</p>
+<p>On the Orin, a DeepStream pipeline batches all eight streams, aligns them frame by frame and logs every frame's timestamp, keeping the offset between cameras below 2 ms. The aligned frames are tiled into a 4 × 2 grid, encoded on the GPU as H.264 and written to a single video file.</p>
+<p class="more-link"><a href="https://github.com/M-Foroutan-M/jackal_clearpath/tree/main/pipeline_scripts" target="_blank" rel="noopener">View the camera pipeline code →</a></p>
+</div>
+</section>
+
+<section class="feature flip">
+<figure class="feature-media">
+<a href="../assets/img/camring-architecture.jpg" target="_blank" rel="noopener"><img src="../assets/img/camring-architecture.jpg" alt="High-level architecture linking the Jackal, the camera ring and the recording pipeline" loading="lazy"></a>
+<figcaption>How the robot and the camera system work together</figcaption>
+</figure>
+<div class="feature-text">
+<div class="kicker">Integration</div>
+<h3>Recording on the move</h3>
+<p>The camera system plugs into the Jackal's mission orchestrator. When the robot gets a navigation goal, it starts recording on the Jetsons over SSH, waits for the cameras to come up, records its own LiDAR and navigation data alongside, and stops and transfers everything when it arrives.</p>
+<p>The whole 11-step sequence starts from a single goal set in RViz, which makes large, repeatable 360° datasets practical.</p>
+</div>
+</section>
+
+<!-- ============ PART 2: SOFTWARE ============ -->
+<section class="part-head">
+<div class="kicker">Part 2 · Software</div>
+<h2>Processing the recordings</h2>
+<p>A ROS 2 pipeline that turns raw 360° video into people the robot can reason about: where each person is, which way they face, and who is who over time.</p>
+</section>
+
+<figure class="wide-figure">
+<a href="../assets/img/human-tracking-360.jpg" target="_blank" rel="noopener"><img src="../assets/img/human-tracking-360.jpg" alt="Left: people detected in a 360-degree frame with IDs and distances. Right: the same people on a top-down map around the robot with heading arrows" loading="lazy"></a>
+<figcaption>Left: people detected in the 360° frame, with track ID and distance. Right: the same people placed around the robot, with heading arrows and track history.</figcaption>
+</figure>
+
+<ol class="stages">
+<li><h4>Reproject</h4><p>Split the equirectangular frame into perspective views, removing fisheye distortion and the seam.</p></li>
+<li><h4>Detect</h4><p>YOLO finds people in every view. Duplicates are merged in spherical coordinates.</p></li>
+<li><h4>Localise</h4><p>Bearing from the box's angle, distance from the ground plane using the camera's height.</p></li>
+<li><h4>Orient</h4><p>Upper-body keypoints give the direction each person is facing.</p></li>
+<li><h4>Track</h4><p>Each person keeps a stable ID across frames, with smoothed position and heading.</p></li>
+</ol>
+
+<section class="feature solo">
+<div class="feature-text">
+<div class="kicker">Output</div>
+<h3>Built for the robot</h3>
+</div>
+<div class="feature-text">
+<p>Results are published as custom ROS 2 messages with a 2D position, heading and ID for every person, plus RViz markers for live viewing. The pipeline runs on the GPU of the Jetson AGX Orin, and the geometry is covered by unit tests that run without ROS or a GPU.</p>
+<p>This gives a socially aware robot what it needs to plan around people: who is nearby, where they are and where they are heading.</p>
+<p class="more-link"><a href="https://github.com/M-Foroutan-M/human_tracking-insta360" target="_blank" rel="noopener">View the 360° tracking code →</a></p>
+</div>
+</section>
+
+<section class="sec"><div class="sec-head"><code>/stack</code><h2>Tools</h2></div>
+<div class="toolbox">
+<div class="tool-group"><h4>Hardware</h4><div class="tools"><span>Jetson AGX Orin</span><span>Jetson Xavier NX</span><span>ELP fisheye cameras</span><span>Insta360</span><span>Network switch</span><span>3D printing</span></div></div>
+<div class="tool-group"><h4>Video pipeline</h4><div class="tools"><span>DeepStream</span><span>GStreamer</span><span>RTSP</span><span>H.264</span><span>SSH</span><span>Python</span></div></div>
+<div class="tool-group"><h4>Perception</h4><div class="tools"><span>ROS 2 Humble</span><span>YOLO</span><span>PyTorch</span><span>OpenCV</span><span>py360convert</span><span>RViz</span></div></div>
+</div>
+</section>
+
 <section class="sec"><nav class="pager" aria-label="More projects">
 <a href="jackal.html"><span>← previous</span>Jackal Autonomous Navigation</a>
 <a class="next" href="imu-glove.html"><span>next →</span>Wearable IMU Glove</a>
@@ -35,6 +141,5 @@
 <footer>© 2026 Farhad Foroutan · <a href="../index.html">home</a></footer>
 </main>
 <script src="../assets/bg.js"></script>
-
 </body>
 </html>
