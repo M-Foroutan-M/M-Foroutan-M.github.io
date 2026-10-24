@@ -56,9 +56,10 @@
       ctx.beginPath(); ctx.moveTo(pts[0][0], pts[0][1]); for (i = 1; i < 4; i++) ctx.lineTo(pts[i][0], pts[i][1]); ctx.stroke();
       ctx.fillStyle = C.edge; for (i = 0; i < 3; i++) { ctx.beginPath(); ctx.arc(pts[i][0], pts[i][1], 8, 0, 7); ctx.fill(); }
       // IMU on proximal phalanx, mounted with a tilt
-      var mx = (pts[0][0] + pts[1][0]) / 2, my = (pts[0][1] + pts[1][1]) / 2;
-      ctx.save(); ctx.translate(mx, my); ctx.rotate(angs[0] + tilt * 0.5);
-      ctx.fillStyle = C.bg; ctx.strokeStyle = C.blue; ctx.lineWidth = 3; ctx.fillRect(-18, -38, 36, 26); ctx.strokeRect(-18, -38, 36, 26);
+      // IMU sits on the fingernail (back of the distal segment, near the tip)
+      var mx = pts[2][0] + (pts[3][0] - pts[2][0]) * 0.62, my = pts[2][1] + (pts[3][1] - pts[2][1]) * 0.62;
+      ctx.save(); ctx.translate(mx, my); ctx.rotate(angs[0] + angs[1] + angs[2] + tilt * 0.5);
+      ctx.fillStyle = C.bg; ctx.strokeStyle = C.blue; ctx.lineWidth = 3; ctx.fillRect(-14, -36, 28, 20); ctx.strokeRect(-14, -36, 28, 20);
       ctx.restore();
       // arc showing true angle
       ctx.strokeStyle = C.amber; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(bx, by, 70, 0, th); ctx.stroke();

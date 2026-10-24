@@ -352,3 +352,31 @@ h2{font-size:1.9rem}
 /* project page: citation and narrow figure images */
 .feature-text .cite{font-size:14px;color:var(--muted);border-left:2px solid var(--line);padding-left:12px}
 .feature-media img.narrow{width:auto;max-width:100%;max-height:460px;margin-inline:auto;display:block}
+
+/* nav: CV link stands out */
+.nav ul a.nav-cv{color:var(--accent);border:1px solid var(--accent);padding:3px 9px}
+.nav ul a.nav-cv:hover{background:var(--accent);color:var(--bg)}
+
+/* home: compact grid, 3 per row, thumbnails never cropped.
+   The picture sits whole in the frame; a blurred copy of itself fills the space around it. */
+@media (min-width:861px){
+  .card,.card.big,.card.half{grid-column:span 2}
+  .card:last-child:nth-child(3n+1){grid-column:3 / span 2}
+}
+.card .thumb,.card .thumb.contain{aspect-ratio:4/3 !important;position:relative;isolation:isolate;overflow:hidden;padding:0;background:var(--panel)}
+.card .thumb::before{content:"";position:absolute;inset:-30px;z-index:-1;background:var(--thumb) center/cover no-repeat;filter:blur(22px) brightness(.45) saturate(1.2)}
+.card .thumb img,.card .thumb.contain img{position:relative;width:100%;height:100%;object-fit:contain !important;filter:drop-shadow(0 6px 18px rgba(0,0,0,.35))}
+.card .body{padding:16px 16px 14px}
+.card h3{font-size:1.02rem}
+.card p{font-size:14px}
+
+/* home: teaching */
+.teach{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.teach-item{min-width:0;display:flex;flex-direction:column;gap:4px;padding:18px 16px;background:var(--surface);border:1px solid var(--line);transition:border-color .15s}
+.teach-item:hover{border-color:var(--accent)}
+.teach-item b{font-family:var(--f-display);font-size:2.4rem;font-weight:600;line-height:1;color:var(--accent);font-variant-numeric:tabular-nums}
+.teach-unit{font-family:var(--f-mono);font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.teach-item h3{margin-top:12px;font-size:1rem;line-height:1.3}
+.teach-item p{margin:0;font-size:13.5px;line-height:1.5;color:var(--muted)}
+@media (max-width:900px){.teach{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:640px){.teach{grid-template-columns:repeat(2,minmax(0,1fr))}}
