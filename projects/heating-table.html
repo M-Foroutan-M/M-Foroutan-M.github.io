@@ -4,10 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Closed-Loop Heating Table · Farhad Foroutan</title>
-<meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Zonal PID control of a 6×8 heated surface with gain scheduling and 70% fewer sensor connections.">
+<meta name="description" content="A smart heating surface in MATLAB/Simulink: 6 × 8 thermal grid, matrix sensing with 70% less wiring, and four-zone PID control with adaptive gain scheduling.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="../assets/site.css?v=4">
+<link rel="stylesheet" href="../assets/site.css?v=6">
 </head>
 <body>
 <nav class="nav" aria-label="Main"><div class="wrap">
@@ -18,24 +17,101 @@
 <main class="wrap">
 <header class="p-head">
 <a class="back" href="../index.html#projects">← all projects</a>
-<div class="eyebrow">Control systems · Simulation · Academic project</div>
+<div class="eyebrow">Control systems · MATLAB/Simulink · Academic project</div>
 <h1>Closed-Loop Heating Table</h1>
-<p class="lede">A MATLAB/Simulink model of a heated table sensed by a 6×8 grid and controlled zone by zone. Each zone runs its own PID loop with adaptive gain scheduling, and a shared sensing layout cut the number of sensor interconnections by 70%.</p>
-<div class="btns"><span class="note-box">Coursework project. Simulink files available on request.</span></div>
+<div class="p-intro">
+<div>
+<p class="lede">A smart heating surface modelled in MATLAB/Simulink. The table is split into a 6 × 8 grid of 48 temperature points and kept at its setpoint by four zones, each with its own PID controller and adaptive gain scheduling. Matrix-addressed sensing cuts the sensor wiring from 48 lines to 14, about 70% less, while still seeing every point on the surface. The model also detects hotspots and recovers on its own from local disturbances.</p>
+<div class="btns">
+<a class="btn primary" href="https://github.com/M-Foroutan-M/smart-thermal-table-simulink-control" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>Simulink model repo</a>
+</div>
+</div>
+<figure class="p-head-media"><img src="../assets/img/heat-zone-temps.jpg" alt="Simulink scope: the four zone temperatures rise from 25 °C, settle near 60 °C, react to a disturbance and settle again at 60 °C"></figure>
+</div>
 </header>
-<figure class="p-visual"><canvas id="heat" width="1280" height="720" aria-label="Closed-Loop Heating Table interactive visual"></canvas><div class="controls"><span>gain scheduling</span><button data-group="heat" data-value="on" aria-pressed="true">on</button><button data-group="heat" data-value="off" aria-pressed="false">off</button><button id="heat-reset">reset to cold</button><span class="hint">Live simulation. Click a cell to cool it</span></div></figure>
-<div class="metrics"><div><b>6 × 8</b><span>spatial sensing grid</span></div><div><b>Zonal PID</b><span>with adaptive gain scheduling</span></div><div><b>−70%</b><span>sensor interconnections</span></div></div>
-<section class="sec"><div class="sec-head"><code>/how</code><h2>How it works</h2></div><div class="notes"><div><h3>Spatial sensing</h3><p>Temperature is measured on a 6×8 grid so hot and cold spots across the surface are visible, not just one average.</p></div><div><h3>Distributed control</h3><p>The surface is split into zones, each with its own PID loop, so a disturbance in one corner is corrected locally.</p></div><div><h3>Gain scheduling</h3><p>Controller gains adapt with operating temperature to keep the response fast without overshoot across the range.</p></div><div><h3>Simpler wiring</h3><p>A shared sensing layout cut sensor interconnections by 70% compared with wiring every point individually.</p></div></div></section>
 
-<section class="sec"><div class="sec-head"><code>/stack</code><h2>Tools</h2></div><div class="chips"><span>MATLAB</span><span>Simulink</span><span>PID</span><span>Gain scheduling</span><span>Thermal modelling</span></div></section>
+<!-- Full system -->
+<section class="part-head">
+<div class="kicker">Simulink model</div>
+<h2>Four subsystems, one closed loop</h2>
+<p>Every 0.1 s the thermal plant updates the temperature field, the sensing layer measures it, the analysis block extracts zone temperatures and hotspots, and the controllers set the heaters.</p>
+</section>
+<figure class="wide-figure">
+<a href="../assets/img/heat-full-system.jpg" target="_blank" rel="noopener"><img src="../assets/img/heat-full-system.jpg" alt="Full Simulink model: matrix sensing, thermal analysis, four PID controllers with gain schedulers and saturation, heater mapper, thermal plant and disturbance generator" loading="lazy"></a>
+<figcaption>Full system: thermal analysis (left), four PID + gain-scheduler loops (centre), heater mapping, thermal plant and disturbance generator (right), with matrix sensing feeding back on top</figcaption>
+</figure>
+
+<!-- Plant -->
+<section class="feature solo">
+<div class="feature-text">
+<div class="kicker">Plant</div>
+<h3>A surface, not a single temperature</h3>
+</div>
+<div class="feature-text">
+<p>The table is modelled as a discrete 6 × 8 grid. Each of the 48 nodes heats from its local heater, shares heat with its neighbours, loses heat to the 25 °C ambient air and can be hit by an external disturbance. This captures what a single-temperature model misses: uneven heating, local cold spots and disturbances spreading across the surface.</p>
+</div>
+</section>
+
+<!-- Sensing -->
+<section class="feature">
+<figure class="feature-media">
+<div class="diagram">
+<svg viewBox="0 0 520 380" role="img" aria-label="Matrix sensing: a 6 by 8 grid of sensing points addressed by 6 row lines and 8 column lines, 14 wires in total instead of 48">
+<g transform="translate(120 60)"><g class="s-accent" stroke-width="2"><path d="M-30 20H250M-30 64H250M-30 108H250M-30 152H250M-30 196H250M-30 240H250"/></g><g class="s-green" stroke-width="2"><path d="M10 -20V260M40 -20V260M70 -20V260M100 -20V260M130 -20V260M160 -20V260M190 -20V260M220 -20V260"/></g><g class="f-warm"><circle cx="10" cy="20" r="5"/><circle cx="40" cy="20" r="5"/><circle cx="70" cy="20" r="5"/><circle cx="100" cy="20" r="5"/><circle cx="130" cy="20" r="5"/><circle cx="160" cy="20" r="5"/><circle cx="190" cy="20" r="5"/><circle cx="220" cy="20" r="5"/><circle cx="10" cy="64" r="5"/><circle cx="40" cy="64" r="5"/><circle cx="70" cy="64" r="5"/><circle cx="100" cy="64" r="5"/><circle cx="130" cy="64" r="5"/><circle cx="160" cy="64" r="5"/><circle cx="190" cy="64" r="5"/><circle cx="220" cy="64" r="5"/><circle cx="10" cy="108" r="5"/><circle cx="40" cy="108" r="5"/><circle cx="70" cy="108" r="5"/><circle cx="100" cy="108" r="5"/><circle cx="130" cy="108" r="5"/><circle cx="160" cy="108" r="5"/><circle cx="190" cy="108" r="5"/><circle cx="220" cy="108" r="5"/><circle cx="10" cy="152" r="5"/><circle cx="40" cy="152" r="5"/><circle cx="70" cy="152" r="5"/><circle cx="100" cy="152" r="5"/><circle cx="130" cy="152" r="5"/><circle cx="160" cy="152" r="5"/><circle cx="190" cy="152" r="5"/><circle cx="220" cy="152" r="5"/><circle cx="10" cy="196" r="5"/><circle cx="40" cy="196" r="5"/><circle cx="70" cy="196" r="5"/><circle cx="100" cy="196" r="5"/><circle cx="130" cy="196" r="5"/><circle cx="160" cy="196" r="5"/><circle cx="190" cy="196" r="5"/><circle cx="220" cy="196" r="5"/><circle cx="10" cy="240" r="5"/><circle cx="40" cy="240" r="5"/><circle cx="70" cy="240" r="5"/><circle cx="100" cy="240" r="5"/><circle cx="130" cy="240" r="5"/><circle cx="160" cy="240" r="5"/><circle cx="190" cy="240" r="5"/><circle cx="220" cy="240" r="5"/></g></g>
+<text x="20" y="170" class="t-accent">6 row</text><text x="20" y="188" class="t-accent">lines</text>
+<text x="150" y="28" class="t-green">8 column lines</text>
+<text x="400" y="190" class="t-ink" font-size="30">14</text>
+<text x="400" y="214" class="t-muted">wires, not 48</text>
+<text x="400" y="240" class="t-warm">≈ 70% less</text>
+</svg>
+</div>
+<figcaption>Each sensing point sits where a row line crosses a column line</figcaption>
+</figure>
+<div class="feature-text">
+<div class="kicker">Sensing</div>
+<h3>48 points, 14 wires</h3>
+<p>Wiring every one of the 48 temperature points separately would need 48 lines. Instead, the sensing layer is matrix-addressed: each point is read where one of 6 row lines crosses one of 8 column lines.</p>
+<p>That cuts the interconnections from 48 to 14, about 70% less wiring, while the controller still sees the full temperature map. The same idea scales to large smart surfaces where wiring would otherwise grow with every added sensor.</p>
+</div>
+</section>
+
+<!-- Control + results -->
+<section class="feature flip">
+<figure class="feature-media">
+<a href="../assets/img/heat-outputs.jpg" target="_blank" rel="noopener"><img src="../assets/img/heat-outputs.jpg" alt="Simulink scopes: maximum temperature, the four zone temperatures settling at 60 °C after a disturbance, and the four heater power signals" loading="lazy" class="narrow"></a>
+<figcaption>Simulation results: max temperature, zone temperatures, heater power</figcaption>
+</figure>
+<div class="feature-text">
+<div class="kicker">Control &amp; results</div>
+<h3>Four zones, each with its own PID</h3>
+<p>The surface is split into four zones. Each zone averages its temperatures, compares the result with the 60 °C setpoint and runs its own PID controller. A gain scheduler pushes harder when the error is large to heat up quickly, then backs off near the setpoint to limit overshoot. Saturation blocks keep each heater command within its limits, and a heater-mapping block spreads each zone's command across its part of the 6 × 8 grid.</p>
+<p>In the simulation all four zones heat from 25 °C to the setpoint. When a disturbance hits one zone at around 85 s, only that zone's heater reacts, and every zone settles back at 60 °C. Hotspot flags and the surface maximum temperature are monitored throughout.</p>
+</div>
+</section>
+
+<!-- Interactive -->
+<section class="part-head">
+<div class="kicker">Try it</div>
+<h2>Play with the controller</h2>
+<p>A simplified version of the same idea running in your browser. Click any cell to cool that area and watch its zone recover.</p>
+</section>
+<figure class="p-visual"><canvas id="heat" width="1280" height="720" aria-label="Interactive simulation of a 6 by 8 heated grid controlled in four PID zones"></canvas><div class="controls"><span>gain scheduling</span><button data-group="heat" data-value="on" aria-pressed="true">on</button><button data-group="heat" data-value="off" aria-pressed="false">off</button><button id="heat-reset">reset to cold</button><span class="hint">Simplified browser simulation · click a cell to cool it</span></div></figure>
+
+<section class="sec"><div class="sec-head"><code>/stack</code><h2>Tools</h2></div>
+<div class="toolbox">
+<div class="tool-group"><h4>Modelling</h4><div class="tools"><span>MATLAB</span><span>Simulink</span><span>MATLAB Function blocks</span><span>Discrete-time grid model</span></div></div>
+<div class="tool-group"><h4>Control</h4><div class="tools"><span>Zonal PID</span><span>Gain scheduling</span><span>Saturation</span><span>Heater mapping</span></div></div>
+<div class="tool-group"><h4>Sensing &amp; analysis</h4><div class="tools"><span>Matrix sensing</span><span>Hotspot detection</span><span>Disturbance testing</span></div></div>
+</div>
+</section>
+
 <section class="sec"><nav class="pager" aria-label="More projects">
 <a href="acc-research.html"><span>← previous</span>Adaptive Cruise Control Research</a>
 <a class="next" href="jackal.html"><span>next →</span>Jackal Autonomous Navigation</a>
 </nav></section>
 <footer>© 2026 Farhad Foroutan · <a href="../index.html">home</a></footer>
 </main>
-<script src="../assets/visuals.js?v=4"></script>
-<script src="../assets/bg.js?v=4"></script>
-
+<script src="../assets/visuals.js?v=6"></script>
+<script src="../assets/bg.js?v=6"></script>
 </body>
 </html>

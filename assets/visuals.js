@@ -47,9 +47,9 @@
       grid(ctx, W, H, 40);
       var th = (50 + 38 * Math.sin(t * 0.0011)) * Math.PI / 180;          // true MCP flexion
       // finger side view
-      var bx = 150, by = 420, L = [150, 100, 75];
+      var bx = 190, by = 250, L = [150, 100, 75];
       ctx.fillStyle = "#1B2A3A"; ctx.strokeStyle = C.edge; ctx.lineWidth = 3;
-      ctx.beginPath(); ctx.roundRect ? ctx.roundRect(40, by - 40, 120, 160, 30) : ctx.rect(40, by - 40, 120, 160); ctx.fill(); ctx.stroke();
+      ctx.beginPath(); ctx.roundRect ? ctx.roundRect(bx - 150, by - 40, 160, 120, 30) : ctx.rect(bx - 150, by - 40, 160, 120); ctx.fill(); ctx.stroke();
       var angs = [th, th * 0.9, th * 0.6], x = bx, y = by, a = 0, pts = [[x, y]];
       for (var i = 0; i < 3; i++) { a += angs[i]; x += L[i] * Math.cos(a); y += L[i] * Math.sin(a); pts.push([x, y]); }
       ctx.lineCap = "round"; ctx.strokeStyle = C.body; ctx.lineWidth = 40;
@@ -99,9 +99,9 @@
   /* ---------- Heating table: 6x8 grid, 12 zones with PID ---------- */
   function heat() {
     var s = setup("heat"); if (!s) return;
-    var ctx = s.ctx, W = s.W, H = s.H, NX = 6, NY = 8, SP = 60, AMB = 20;
+    var ctx = s.ctx, W = s.W, H = s.H, NX = 6, NY = 8, SP = 60, AMB = 25;
     var T = [], zones = [], sched = true, hist = [];
-    function reset() { T = []; for (var i = 0; i < NX * NY; i++) T.push(AMB + Math.random() * 3); zones = []; for (var z = 0; z < 12; z++) zones.push({ i: 0, e: 0, u: 0 }); hist = []; }
+    function reset() { T = []; for (var i = 0; i < NX * NY; i++) T.push(AMB + Math.random() * 3); zones = []; for (var z = 0; z < 4; z++) zones.push({ i: 0, e: 0, u: 0 }); hist = []; }
     reset();
     bindToggle("heat", function (v) { sched = v === "on"; });
     var resetBtn = document.getElementById("heat-reset"); if (resetBtn) resetBtn.addEventListener("click", reset);
@@ -115,10 +115,10 @@
         }
       }
     });
-    function zoneOf(i, j) { return Math.floor(j / 2) * 3 + Math.floor(i / 2); }
+    function zoneOf(i, j) { return (j < 4 ? 0 : 2) + (i < 3 ? 0 : 1); }
     function step(dt) {
-      var zt = []; for (var z = 0; z < 12; z++) zt.push(0);
-      for (var j = 0; j < NY; j++) for (var i = 0; i < NX; i++) zt[zoneOf(i, j)] += T[j * NX + i] / 4;
+      var zt = []; for (var z = 0; z < 4; z++) zt.push(0);
+      for (var j = 0; j < NY; j++) for (var i = 0; i < NX; i++) zt[zoneOf(i, j)] += T[j * NX + i] / 12;
       zones.forEach(function (Z, z) {
         var e = SP - zt[z], kp = sched ? (e > 10 ? 1.6 : 0.9) : 1.6, ki = sched ? 0.18 : 0.35, kd = 0.4;
         Z.i = Math.max(-80, Math.min(80, Z.i + e * dt)); var d = (e - Z.e) / dt; Z.e = e;
@@ -146,7 +146,7 @@
       var dt = Math.min(0.05, (t - last) / 1000 || 0.016); last = t;
       if (reduce) { for (var r = 0; r < 600; r++) step(0.05); } else { for (var r2 = 0; r2 < 3; r2++) step(dt * 2); }
       grid(ctx, W, H, 40);
-      label(ctx, "6 × 8 sensing grid · 12 PID zones", gx, 90, C.muted, 15);
+      label(ctx, "6 × 8 sensing grid · 4 PID zones", gx, 90, C.muted, 15);
       for (var j = 0; j < NY; j++) for (var i = 0; i < NX; i++) {
         var v = T[j * NX + i], x = gx + i * (cw + gap), y = gy + j * (ch + gap);
         ctx.fillStyle = col(v); ctx.fillRect(x, y, cw, ch);
@@ -154,8 +154,8 @@
       }
       // zone outlines
       ctx.strokeStyle = C.bg; ctx.lineWidth = 4;
-      for (var zx = 0; zx <= 3; zx++) { var xx = gx + zx * 2 * (cw + gap) - gap / 2; ctx.beginPath(); ctx.moveTo(xx, gy - 3); ctx.lineTo(xx, gy + NY * (ch + gap) - gap + 3); ctx.stroke(); }
-      for (var zy = 0; zy <= 4; zy++) { var yy = gy + zy * 2 * (ch + gap) - gap / 2; ctx.beginPath(); ctx.moveTo(gx - 3, yy); ctx.lineTo(gx + NX * (cw + gap) - gap + 3, yy); ctx.stroke(); }
+      for (var zx = 0; zx <= 2; zx++) { var xx = gx + zx * 3 * (cw + gap) - gap / 2; ctx.beginPath(); ctx.moveTo(xx, gy - 3); ctx.lineTo(xx, gy + NY * (ch + gap) - gap + 3); ctx.stroke(); }
+      for (var zy = 0; zy <= 2; zy++) { var yy = gy + zy * 4 * (ch + gap) - gap / 2; ctx.beginPath(); ctx.moveTo(gx - 3, yy); ctx.lineTo(gx + NX * (cw + gap) - gap + 3, yy); ctx.stroke(); }
       // stats
       var mean = T.reduce(function (a, b) { return a + b; }, 0) / T.length;
       var worst = T.reduce(function (a, b) { return Math.max(a, Math.abs(SP - b)); }, 0);
