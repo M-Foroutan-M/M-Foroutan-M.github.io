@@ -306,10 +306,7 @@ h2{font-size:1.9rem}
 .feature-media .pair.tall{align-items:start}
 .feature-media .pair.tall img{aspect-ratio:auto;height:auto;object-fit:contain}
 
-.card.big .thumb{aspect-ratio:1837/1597 !important}
 
-/* home: same thumbnail shape for the middle row (glove, cold chain, boat) */
-.card:not(.half) .thumb{aspect-ratio:1837/1597 !important}
 .card .thumb img[src$=".svg"]{object-fit:contain}
 
 /* project page: inline diagrams */
@@ -323,3 +320,22 @@ h2{font-size:1.9rem}
 .diagram .s-warm{stroke:var(--warm)} .diagram .f-warm{fill:var(--warm)} .diagram .t-warm{fill:var(--warm)}
 .diagram .s-muted{stroke:var(--muted)} .diagram .f-muted{fill:var(--muted)} .diagram .t-muted{fill:var(--muted)}
 .diagram .f-ink{fill:var(--ink)} .diagram .t-ink{fill:var(--ink)} .diagram .s-bg{stroke:var(--bg)}
+
+/* home: every project card the same size and shape */
+@media (min-width:861px){
+  .card,.card.big,.card.half{grid-column:span 3}
+}
+.card .thumb{aspect-ratio:1837/1597 !important}
+
+/* sailboat page: boat photo and parts grid */
+.boat-media{background:var(--surface);border:1px solid var(--line);padding:20px;display:flex;justify-content:center}
+.boat-media img{width:auto;max-width:100%;max-height:520px;border:0;background:none}
+.parts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:18px}
+.parts figure{margin:0;min-width:0;display:flex;flex-direction:column;align-items:center;gap:8px;padding:12px 8px;background:var(--surface);border:1px solid var(--line);transition:border-color .15s}
+.parts figure:hover{border-color:var(--accent)}
+.parts img{width:100%;height:64px;object-fit:contain}
+.parts figcaption{font-family:var(--f-mono);font-size:11px;line-height:1.3;color:var(--muted);text-align:center}
+.credit-line{margin-top:14px;font-family:var(--f-mono);font-size:11.5px;color:var(--muted)}
+.credit-line a{color:var(--muted)}
+.credit-line a:hover{color:var(--accent)}
+@media (max-width:640px){.parts{grid-template-columns:repeat(2,minmax(0,1fr))}}
