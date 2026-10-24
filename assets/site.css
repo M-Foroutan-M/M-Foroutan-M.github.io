@@ -307,3 +307,19 @@ h2{font-size:1.9rem}
 .feature-media .pair.tall img{aspect-ratio:auto;height:auto;object-fit:contain}
 
 .card.big .thumb{aspect-ratio:1837/1597 !important}
+
+/* home: same thumbnail shape for the middle row (glove, cold chain, boat) */
+.card:not(.half) .thumb{aspect-ratio:1837/1597 !important}
+.card .thumb img[src$=".svg"]{object-fit:contain}
+
+/* project page: inline diagrams */
+.diagram{border:1px solid var(--line);background:var(--surface);padding:12px}
+.diagram svg{display:block;width:100%;height:auto;font-family:var(--f-mono);font-size:13px}
+.diagram .grid-l path{stroke:var(--line);stroke-width:1}
+.diagram .panel-r{fill:rgba(255,255,255,.02);stroke:var(--line)}
+.diagram .s-line{stroke:var(--line);stroke-width:1;fill:none}
+.diagram .s-accent{stroke:var(--accent)} .diagram .f-accent{fill:var(--accent)} .diagram .t-accent{fill:var(--accent)}
+.diagram .s-green{stroke:var(--ax-y)} .diagram .f-green{fill:var(--ax-y)} .diagram .t-green{fill:var(--ax-y)}
+.diagram .s-warm{stroke:var(--warm)} .diagram .f-warm{fill:var(--warm)} .diagram .t-warm{fill:var(--warm)}
+.diagram .s-muted{stroke:var(--muted)} .diagram .f-muted{fill:var(--muted)} .diagram .t-muted{fill:var(--muted)}
+.diagram .f-ink{fill:var(--ink)} .diagram .t-ink{fill:var(--ink)} .diagram .s-bg{stroke:var(--bg)}
