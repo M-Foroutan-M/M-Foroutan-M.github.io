@@ -348,3 +348,7 @@ h2{font-size:1.9rem}
 .code-panel .n{color:var(--warm)}
 .code-panel .b{color:var(--ax-x)}
 .code-panel .c{color:var(--muted)}
+
+/* project page: citation and narrow figure images */
+.feature-text .cite{font-size:14px;color:var(--muted);border-left:2px solid var(--line);padding-left:12px}
+.feature-media img.narrow{width:auto;max-width:100%;max-height:460px;margin-inline:auto;display:block}

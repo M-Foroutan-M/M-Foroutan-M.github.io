@@ -4,10 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Adaptive Cruise Control Research · Farhad Foroutan</title>
-<meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="An ACC strategy that adapts following distance and braking to road condition and lateral motion.">
+<meta name="description" content="A surface-aware adaptive cruise control system modelled in MATLAB/Simulink, adapting braking and following distance to road condition and lateral motion. Published research.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="../assets/site.css?v=3">
+<link rel="stylesheet" href="../assets/site.css?v=4">
 </head>
 <body>
 <nav class="nav" aria-label="Main"><div class="wrap">
@@ -15,27 +14,91 @@
 <ul><li><a href="../index.html#projects">/projects</a></li><li><a href="../index.html#experience">/experience</a></li><li><a href="../index.html#skills">/skills</a></li><li><a href="../index.html#contact">/contact</a></li>
 <li><a href="https://github.com/M-Foroutan-M" target="_blank" rel="noopener" aria-label="GitHub profile">github ↗</a></li></ul>
 </div></nav>
+
 <main class="wrap">
 <header class="p-head">
 <a class="back" href="../index.html#projects">← all projects</a>
-<div class="eyebrow">Vehicle dynamics · Published · Dynamics &amp; Control Lab, Shiraz University · 2022–2024</div>
+<div class="eyebrow">Vehicle dynamics · Published research · Dynamics &amp; Control Lab, Shiraz University · 2022–2024</div>
 <h1>Adaptive Cruise Control Research</h1>
-<p class="lede">At Shiraz University&#x27;s Dynamics and Control Lab I developed an adaptive cruise control strategy that considers road condition and lateral motion, not only the gap to the car ahead. It became my BSc thesis and led to two peer-reviewed papers on ADAS, motion planning and control.</p>
-<div class="btns"><a class="btn" href="https://doi.org/10.22060/ajme.2024.22878.6081" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 1h6.5L13 4.5V15H3V1zm6 1.5V5h2.5L9 2.5zM5 8h6v1.2H5V8zm0 2.6h6v1.2H5v-1.2z"/></svg>Read the paper</a><a class="btn" href="https://scholar.google.com/citations?user=LDjci9gAAAAJ&hl=en" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 1h6.5L13 4.5V15H3V1zm6 1.5V5h2.5L9 2.5zM5 8h6v1.2H5V8zm0 2.6h6v1.2H5v-1.2z"/></svg>Google Scholar</a></div>
+<div class="p-intro">
+<div>
+<p class="lede">Standard adaptive cruise control only looks at the gap to the car ahead. I developed an ACC strategy that also accounts for the road surface and the car's lateral motion: it adjusts braking force and following distance to the grip available, and eases off the throttle when cornering gets too hard. I built and tested the full system in MATLAB/Simulink. The work became my BSc thesis and a peer-reviewed paper.</p>
+<div class="btns">
+<a class="btn primary" href="https://github.com/M-Foroutan-M/simulink-adaptive-cruise-control-with-surface-awareness" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>Simulink model repo</a>
+<a class="btn" href="https://doi.org/10.22060/ajme.2024.22878.6081" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 1h6.5L13 4.5V15H3V1zm6 1.5V5h2.5L9 2.5zM5 8h6v1.2H5V8zm0 2.6h6v1.2H5v-1.2z"/></svg>Read the paper</a>
+<a class="btn" href="https://scholar.google.com/citations?user=LDjci9gAAAAJ&amp;hl=en" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 1h6.5L13 4.5V15H3V1zm6 1.5V5h2.5L9 2.5zM5 8h6v1.2H5V8zm0 2.6h6v1.2H5v-1.2z"/></svg>Google Scholar</a>
+</div>
+</div>
+<figure class="p-head-media"><img src="../assets/img/acc-road.jpg" alt="Simulated winding test road with the host vehicle and its sensor coverage"></figure>
+</div>
 </header>
-<figure class="p-visual"><canvas id="acc" width="1280" height="720" aria-label="Adaptive Cruise Control Research interactive visual"></canvas><div class="controls"><span>road</span><button data-group="acc" data-value="dry" aria-pressed="true">dry</button><button data-group="acc" data-value="wet" aria-pressed="false">wet</button><button data-group="acc" data-value="icy" aria-pressed="false">icy</button><span class="hint">Interactive sketch of the idea, not the published model</span></div></figure>
-<div class="metrics"><div><b>~40%</b><span>lower peak deceleration when following</span></div><div><b>10%</b><span>better fuel efficiency</span></div><div><b>2</b><span>peer-reviewed papers</span></div></div>
-<section class="sec"><div class="sec-head"><code>/how</code><h2>How it works</h2></div><div class="notes"><div><h3>Road-aware gap</h3><p>Following distance and braking force adapt to road surface and weather, so the car keeps a longer gap on wet or icy roads.</p></div><div><h3>Gentler following</h3><p>A new tail-following method and throttle controller cut maximum deceleration by about 40% on average and reduce brake use.</p></div><div><h3>Comfort in corners</h3><p>Lateral motion is part of the comfort objective, which also produced a 10% gain in fuel efficiency.</p></div><div><h3>Publication</h3><p>Foroutan Moharrami, M. &amp; Mohammadi, M. A New Adaptive Cruise Control Strategy Considering Road Conditions. AUT Journal of Mechanical Engineering, 7(4), 355–366.</p></div></div></section>
 
-<section class="sec"><div class="sec-head"><code>/stack</code><h2>Tools</h2></div><div class="chips"><span>MATLAB</span><span>Simulink</span><span>Vehicle dynamics</span><span>Control design</span><span>ADAS</span><span>Sensor fusion</span></div></section>
+<!-- Full system -->
+<section class="part-head">
+<div class="kicker">Simulink model</div>
+<h2>Two vehicles, one closed loop</h2>
+<p>The model simulates a host car and the car in front of it. The ACC controller sits between them and decides throttle and braking every time step.</p>
+</section>
+<figure class="wide-figure">
+<a href="../assets/img/acc-full-system.jpg" target="_blank" rel="noopener"><img src="../assets/img/acc-full-system.jpg" alt="Full Simulink model: relative distance and velocity calculation, the ACC controller block, the front vehicle subsystem and the host vehicle subsystem with steering, powertrain and a 3DOF dual-track vehicle body" loading="lazy"></a>
+<figcaption>Full system in Simulink: relative distance and velocity (top left), the ACC controller (centre), the front vehicle (top right) and the host vehicle with steering, powertrain and a 3-DOF dual-track body (bottom right)</figcaption>
+</figure>
+
+<!-- Control logic -->
+<section class="feature">
+<figure class="feature-media">
+<a href="../assets/img/acc-logic.jpg" target="_blank" rel="noopener"><img src="../assets/img/acc-logic.jpg" alt="Control logic flowchart: surface detection sets braking force and following distance; if an obstacle is in range and the host is faster, the deceleration algorithm chooses throttle control, throttle close or braking; lateral acceleration is checked against a safe zone" loading="lazy"></a>
+<figcaption>Decision logic of the controller</figcaption>
+</figure>
+<div class="feature-text">
+<div class="kicker">Control logic</div>
+<h3>Surface first, then distance, then comfort</h3>
+<p>The driver sets a speed. The controller first detects the road surface and uses it to set the braking force and the following distance it can safely rely on.</p>
+<p>If a car is in range and the host is faster, a deceleration algorithm chooses between easing the throttle, closing it, or braking. When the road is clear, it checks lateral acceleration: if cornering leaves the safe zone, it closes the throttle or brakes, otherwise it holds the driver's set speed.</p>
+</div>
+</section>
+
+<!-- Sensing & road -->
+<section class="feature flip">
+<figure class="feature-media">
+<a href="../assets/img/acc-sensor.jpg" target="_blank" rel="noopener"><img src="../assets/img/acc-sensor.jpg" alt="Sensor field of view in front of the host vehicle" loading="lazy" class="narrow"></a>
+<figcaption>Modelled forward sensor coverage in front of the host vehicle</figcaption>
+</figure>
+<div class="feature-text">
+<div class="kicker">Simulation</div>
+<h3>Tested on curves, not just straights</h3>
+<p>Following a car on a straight road is the easy case. The controller was tested on a winding road where lateral acceleration matters, with a modelled forward sensor measuring the distance and relative speed of the car ahead.</p>
+<p>The host vehicle uses a 3-DOF dual-track body with steering, powertrain and driveline, so braking and cornering behave like a real car rather than a point mass.</p>
+</div>
+</section>
+
+<!-- Results -->
+<section class="feature solo">
+<div class="feature-text">
+<div class="kicker">Results</div>
+<h3>Safer, smoother, more efficient</h3>
+</div>
+<div class="feature-text">
+<p>Compared with a standard approach, the new tail-following method and throttle controller cut maximum deceleration by about 40% on average when following another vehicle, and reduced the need for braking. Making lateral motion part of the comfort objective also gave a 10% improvement in fuel efficiency.</p>
+<p class="cite">Foroutan Moharrami, M. &amp; Mohammadi, M. A New Adaptive Cruise Control Strategy Considering Road Conditions. <i>AUT Journal of Mechanical Engineering</i>, 7(4), 355–366.</p>
+<p class="more-link"><a href="https://doi.org/10.22060/ajme.2024.22878.6081" target="_blank" rel="noopener">Read the paper →</a></p>
+</div>
+</section>
+
+<section class="sec"><div class="sec-head"><code>/stack</code><h2>Tools</h2></div>
+<div class="toolbox">
+<div class="tool-group"><h4>Modelling</h4><div class="tools"><span>MATLAB</span><span>Simulink</span><span>Vehicle Dynamics Blockset</span><span>3-DOF dual-track model</span></div></div>
+<div class="tool-group"><h4>Control</h4><div class="tools"><span>PID control</span><span>Throttle &amp; brake logic</span><span>Surface-aware braking</span><span>Lateral acceleration limits</span></div></div>
+<div class="tool-group"><h4>Domain</h4><div class="tools"><span>ADAS</span><span>Vehicle dynamics</span><span>Sensor modelling</span><span>Motion planning</span></div></div>
+</div>
+</section>
+
 <section class="sec"><nav class="pager" aria-label="More projects">
 <a href="sailboat.html"><span>← previous</span>Autonomous Sailboat</a>
 <a class="next" href="heating-table.html"><span>next →</span>Closed-Loop Heating Table</a>
 </nav></section>
 <footer>© 2026 Farhad Foroutan · <a href="../index.html">home</a></footer>
 </main>
-<script src="../assets/visuals.js?v=3"></script>
-<script src="../assets/bg.js?v=3"></script>
-
+<script src="../assets/bg.js?v=4"></script>
 </body>
 </html>
