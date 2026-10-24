@@ -101,10 +101,10 @@
   function heat() {
     var s = setup("heat"); if (!s) return;
     var ctx = s.ctx, W = s.W, H = s.H, NX = 6, NY = 8, SP = 60, AMB = 25;
-    var T = [], zones = [], sched = true, hist = [];
+    var T = [], zones = [], sched = false, hist = [];
     function reset() { T = []; for (var i = 0; i < NX * NY; i++) T.push(AMB + Math.random() * 3); zones = []; for (var z = 0; z < 4; z++) zones.push({ i: 0, e: 0, u: 0 }); hist = []; }
     reset();
-    bindToggle("heat", function (v) { sched = v === "on"; });
+    bindToggle("heat", function (v) { sched = v === "off"; });
     var resetBtn = document.getElementById("heat-reset"); if (resetBtn) resetBtn.addEventListener("click", reset);
     var cw = 64, ch = 60, gx = 70, gy = 120, gap = 6;
     s.c.addEventListener("click", function (ev) {
