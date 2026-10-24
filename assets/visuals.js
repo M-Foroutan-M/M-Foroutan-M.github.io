@@ -121,9 +121,13 @@
       var zt = []; for (var z = 0; z < 4; z++) zt.push(0);
       for (var j = 0; j < NY; j++) for (var i = 0; i < NX; i++) zt[zoneOf(i, j)] += T[j * NX + i] / 12;
       zones.forEach(function (Z, z) {
-        var e = SP - zt[z], kp = sched ? (e > 10 ? 1.6 : 0.9) : 1.6, ki = sched ? 0.18 : 0.35, kd = 0.4;
-        Z.i = Math.max(-80, Math.min(80, Z.i + e * dt)); var d = (e - Z.e) / dt; Z.e = e;
-        Z.u = Math.max(0, Math.min(60, kp * e + ki * Z.i + kd * d));
+        // PI per zone. Gain scheduling boosts the proportional gain while the error is large.
+        var e = SP - zt[z], kp = (sched && Math.abs(e) > 10) ? 2.5 : 1.2, ki = 0.5;
+        var raw = kp * e + ki * Z.i;
+        // anti-windup: stop integrating while the heater is saturated in the same direction
+        if (!((raw >= 60 && e > 0) || (raw <= 0 && e < 0))) Z.i += e * dt;
+        Z.e = e;
+        Z.u = Math.max(0, Math.min(60, kp * e + ki * Z.i));
       });
       var N = T.slice();
       for (j = 0; j < NY; j++) for (i = 0; i < NX; i++) {

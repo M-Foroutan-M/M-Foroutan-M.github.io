@@ -380,3 +380,6 @@ h2{font-size:1.9rem}
 .teach-item p{margin:0;font-size:13.5px;line-height:1.5;color:var(--muted)}
 @media (max-width:900px){.teach{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:640px){.teach{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* home: contact paragraph uses the full width */
+#contact .lede{max-width:none}
