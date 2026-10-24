@@ -4,10 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Cold-Chain Sensor Hub · Farhad Foroutan</title>
-<meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="A headless Raspberry Pi box for refrigerated vans: nine sensors, 4G uplink, recovers on its own.">
+<meta name="description" content="An always-on Raspberry Pi edge device for refrigerated vans: multi-sensor telemetry, 4G cloud sync, route-aware ETA and self-recovering operation.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="../assets/site.css?v=2">
+<link rel="stylesheet" href="../assets/site.css?v=3">
 </head>
 <body>
 <nav class="nav" aria-label="Main"><div class="wrap">
@@ -15,50 +14,121 @@
 <ul><li><a href="../index.html#projects">/projects</a></li><li><a href="../index.html#experience">/experience</a></li><li><a href="../index.html#skills">/skills</a></li><li><a href="../index.html#contact">/contact</a></li>
 <li><a href="https://github.com/M-Foroutan-M" target="_blank" rel="noopener" aria-label="GitHub profile">github ↗</a></li></ul>
 </div></nav>
+
 <main class="wrap">
 <header class="p-head">
 <a class="back" href="../index.html#projects">← all projects</a>
-<div class="eyebrow">Embedded IoT · UKRI-funded · Aston University · 2025–2026</div>
+<div class="eyebrow">Embedded IoT · UKRI-funded project · Aston University · 2025–2026</div>
 <h1>Cold-Chain Sensor Hub</h1>
-<p class="lede">An always-on edge computer for refrigerated delivery vans. It reads nine sensors, logs structured telemetry every 5 seconds and pushes it to the cloud over 4G every 30 seconds. It keeps working through signal loss and restarts itself after a crash or power cut.</p>
-<div class="btns"><a class="btn primary" href="https://github.com/M-Foroutan-M/Refrigeration-Sensor-Hub" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub repo</a></div>
+<div class="p-intro">
+<div>
+<p class="lede">An always-on edge computer for refrigerated delivery vans. A Raspberry Pi reads temperature, humidity, door state, position and weather, combines everything into one structured record every 5 seconds, and pushes it to the cloud over 4G every 30 seconds. It plans the route to each delivery, keeps logging through signal loss, and restarts itself after a crash or power cut, so nobody has to touch it once it is installed.</p>
+<div class="btns">
+<a class="btn primary" href="https://github.com/M-Foroutan-M/Refrigeration-Sensor-Hub" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>Sensor hub repo</a>
+</div>
+</div>
+<figure class="p-head-media"><img src="../assets/img/hub-components.jpg" alt="The hub's hardware laid out: Raspberry Pi 4, SIM7600G-H 4G dongle, two SHT31 sensors, DS18B20 probe, M8N GPS, door reed switch and pyranometer cable"></figure>
+</div>
 </header>
-<figure class="p-visual"><svg viewBox="0 0 1280 620" role="img" aria-label="Sensor hub data flow: nine sensors on different buses feed a Raspberry Pi, which logs locally and uploads over 4G to the cloud" style="display:block;width:100%;height:auto" font-family="JetBrains Mono, Menlo, monospace">
-<rect width="1280" height="620" fill="#0F1A24"/>
-<style>.f{stroke-dasharray:8 8;animation:d 1.2s linear infinite}@keyframes d{to{stroke-dashoffset:-16}}@media (prefers-reduced-motion:reduce){.f{animation:none}}</style>
-<g font-size="15" fill="#E6ECF1">
-<circle cx="52" cy="60" r="8" fill="#7AA7F0"/><text x="72" y="56">Inside temp + humidity</text><text x="72" y="76" fill="#8CA0B3" font-size="12.5">SHT31 · I2C 0x44</text><path class="f" d="M330 60 C400 60 400 310 470 310" stroke="#7AA7F0" stroke-width="2" fill="none" opacity=".75"/><circle cx="52" cy="132" r="8" fill="#7AA7F0"/><text x="72" y="128">Probe temperature</text><text x="72" y="148" fill="#8CA0B3" font-size="12.5">DS18B20 · 1-Wire</text><path class="f" d="M330 132 C400 132 400 310 470 310" stroke="#7AA7F0" stroke-width="2" fill="none" opacity=".75"/><circle cx="52" cy="204" r="8" fill="#F0705E"/><text x="72" y="200">Door open / closed</text><text x="72" y="220" fill="#8CA0B3" font-size="12.5">reed switch · GPIO17</text><path class="f" d="M330 204 C400 204 400 310 470 310" stroke="#F0705E" stroke-width="2" fill="none" opacity=".75"/><circle cx="52" cy="276" r="8" fill="#5CC77A"/><text x="72" y="272">Vehicle position</text><text x="72" y="292" fill="#8CA0B3" font-size="12.5">GPS · UART NMEA</text><path class="f" d="M330 276 C400 276 400 310 470 310" stroke="#5CC77A" stroke-width="2" fill="none" opacity=".75"/><circle cx="52" cy="348" r="8" fill="#FFC857"/><text x="72" y="344">Outside temp + humidity</text><text x="72" y="364" fill="#8CA0B3" font-size="12.5">SHT31 · I2C 0x45</text><path class="f" d="M330 348 C400 348 400 310 470 310" stroke="#FFC857" stroke-width="2" fill="none" opacity=".75"/><circle cx="52" cy="420" r="8" fill="#FFC857"/><text x="72" y="416">Solar radiation</text><text x="72" y="436" fill="#8CA0B3" font-size="12.5">PYR20 · RS485 Modbus</text><path class="f" d="M330 420 C400 420 400 310 470 310" stroke="#FFC857" stroke-width="2" fill="none" opacity=".75"/><circle cx="52" cy="492" r="8" fill="#5CC77A"/><text x="72" y="488">Mission route + ETA</text><text x="72" y="508" fill="#8CA0B3" font-size="12.5">route service</text><path class="f" d="M330 492 C400 492 400 310 470 310" stroke="#5CC77A" stroke-width="2" fill="none" opacity=".75"/>
-</g>
-<rect x="470" y="220" width="250" height="180" rx="10" fill="#1B2A3A" stroke="#7AA7F0" stroke-width="3"/>
-<text x="495" y="262" fill="#E6ECF1" font-size="22" font-weight="500">Raspberry Pi 4</text>
-<text x="495" y="292" fill="#8CA0B3" font-size="14">config-driven Python</text>
-<text x="495" y="316" fill="#8CA0B3" font-size="14">sample every 5 s</text>
-<text x="495" y="340" fill="#8CA0B3" font-size="14">systemd · self-healing</text>
-<text x="495" y="372" fill="#5CC77A" font-size="14">● running headless</text>
-<path class="f" d="M720 310 H820" stroke="#7AA7F0" stroke-width="3" fill="none"/>
-<rect x="820" y="260" width="170" height="100" rx="8" fill="#13212E" stroke="#3B5470" stroke-width="2"/>
-<text x="840" y="298" fill="#E6ECF1" font-size="17">local log</text>
-<text x="840" y="324" fill="#8CA0B3" font-size="13">JSON Lines</text>
-<text x="840" y="344" fill="#8CA0B3" font-size="13">offline first</text>
-<path class="f" d="M990 310 H1060" stroke="#7AA7F0" stroke-width="3" fill="none"/>
-<text x="994" y="340" fill="#7AA7F0" font-size="13">4G</text>
-<rect x="1060" y="250" width="180" height="120" rx="8" fill="#13212E" stroke="#7AA7F0" stroke-width="2"/>
-<text x="1080" y="292" fill="#E6ECF1" font-size="17">cloud storage</text>
-<text x="1080" y="318" fill="#8CA0B3" font-size="13">rclone sync</text>
-<text x="1080" y="340" fill="#FFC857" font-size="13">every 30 s</text>
-<text x="40" y="580" fill="#8CA0B3" font-size="14">Deployed in refrigerated delivery vans · UKRI-funded project, Aston University</text>
-</svg></figure>
-<div class="metrics"><div><b>9</b><span>heterogeneous sensors on one Raspberry Pi</span></div><div><b>5 s</b><span>sampling, logged as JSON Lines</span></div><div><b>30 s</b><span>cloud sync over 4G LTE</span></div></div>
-<section class="sec"><div class="sec-head"><code>/how</code><h2>How it works</h2></div><div class="notes"><div><h3>Many buses, one pipeline</h3><p>I2C, 1-Wire, UART, GPIO and RS485 Modbus sensors feed a single config-driven Python pipeline. Adding a sensor means editing a config file, not the core code.</p></div><div><h3>Offline first</h3><p>Data is written locally first and uploaded with rclone over a SIM7600 4G modem, so nothing is lost when the van drives through a dead zone.</p></div><div><h3>Zero-touch operation</h3><p>Runs as a systemd service with auto-start, crash recovery and self-healing, so the driver never has to touch it.</p></div><div><h3>Ready for analysis</h3><p>I contributed to the SQL schema that archives sensor and route data for the companion web platform.</p></div></div></section>
 
-<section class="sec"><div class="sec-head"><code>/stack</code><h2>Tools</h2></div><div class="chips"><span>Python</span><span>Raspberry Pi 4</span><span>I2C</span><span>1-Wire</span><span>UART</span><span>RS485 Modbus</span><span>SIM7600 4G</span><span>rclone</span><span>systemd</span><span>SQL</span></div></section>
+<!-- 1. Hardware -->
+<section class="feature">
+<figure class="feature-media">
+<a href="../assets/img/hub-architecture.jpg" target="_blank" rel="noopener"><img src="../assets/img/hub-architecture.jpg" alt="Block diagram: Raspberry Pi 4 at the centre, connected to indoor and outdoor environmental sensors, a GPS module, a 4G dongle and power monitoring" loading="lazy"></a>
+<figcaption>Hardware architecture: every sensor and the bus it uses</figcaption>
+</figure>
+<div class="feature-text">
+<div class="kicker">Hardware</div>
+<h3>Many sensors, many buses, one Pi</h3>
+<p>Inside the cargo area, an SHT31 measures temperature and humidity, a DS18B20 probe adds a second temperature reading, and a magnetic reed switch reports whether the door is open. Outside, a second SHT31 and a PYR20 pyranometer measure the weather and the sunlight hitting the van, and an M8N GPS tracks its position.</p>
+<p>These sensors use five different interfaces: I2C, 1-Wire, GPIO, UART and RS485 Modbus. A SIM7600G-H 4G dongle connects the van to the internet.</p>
+</div>
+</section>
+
+<!-- 2. Software flow -->
+<section class="feature flip">
+<figure class="feature-media">
+<a href="../assets/img/hub-flow.jpg" target="_blank" rel="noopener"><img src="../assets/img/hub-flow.jpg" alt="Software flow: system boot, component initialisation, sensor reading, route API call, local JSON storage and cloud sync, with cooling control as the next step" loading="lazy"></a>
+<figcaption>Software flow, from boot to the cloud</figcaption>
+</figure>
+<div class="feature-text">
+<div class="kicker">Software</div>
+<h3>From boot to the cloud</h3>
+<p>On power-up, a systemd service starts the Python runtime, loads the configuration and initialises every sensor. From then on the main loop reads all the sensors every 5 seconds, merges the readings into one timestamped record and writes it to a daily JSON Lines file.</p>
+<p>A separate uploader syncs the files to cloud storage with rclone every 30 seconds. The code is config-driven, so adding a new sensor or changing an interval means editing a JSON file, not the core code.</p>
+</div>
+</section>
+
+<!-- 3. Data record + route -->
+<section class="feature">
+<figure class="feature-media">
+<div class="code-panel" role="img" aria-label="Example telemetry record in JSON">
+<pre><span class="c">// one record, every 5 seconds</span>
+{
+  <span class="k">"timestamp"</span>: <span class="s">"2026-06-02T18:32:04Z"</span>,
+  <span class="k">"van_id"</span>: <span class="s">"van_01"</span>,
+  <span class="k">"inside"</span>: {
+    <span class="k">"temperature_c"</span>: <span class="n">22.31</span>,
+    <span class="k">"humidity_percent"</span>: <span class="n">46.51</span>
+  },
+  <span class="k">"door_open"</span>: <span class="b">false</span>,
+  <span class="k">"gps"</span>: { <span class="k">"latitude"</span>: <span class="n">52.4862</span>, <span class="k">"longitude"</span>: <span class="n">-1.8904</span>, <span class="k">"fix"</span>: <span class="b">true</span> },
+  <span class="k">"route"</span>: {
+    <span class="k">"provider"</span>: <span class="s">"openrouteservice"</span>,
+    <span class="k">"summary"</span>: { <span class="k">"total_distance_km"</span>: <span class="n">0.19</span>, <span class="k">"total_duration_min"</span>: <span class="n">0.4</span> }
+  },
+  <span class="k">"weather_station"</span>: { <span class="k">"temperature_c"</span>: <span class="n">22.79</span> },
+  <span class="k">"solar_radiation"</span>: { <span class="k">"solar_radiation_w_m2"</span>: <span class="n">9</span> }
+}</pre>
+</div>
+<figcaption>A real record from the hub (shortened)</figcaption>
+</figure>
+<div class="feature-text">
+<div class="kicker">Data &amp; routing</div>
+<h3>One record, everything in it</h3>
+<p>Every record holds the full picture of the van at that moment: cargo temperature and humidity, door state, position, outside weather and solar load, all under one timestamp, ready for analysis.</p>
+<p>When a mission has delivery destinations, the hub calls the OpenRouteService API every 3 minutes from its live GPS position and adds the remaining distance and ETA for each leg to the record. Destinations can be postcodes or coordinates. I also helped design the SQL database that archives these records for the project's web platform.</p>
+</div>
+</section>
+
+<!-- 4. Reliability -->
+<section class="feature solo">
+<div class="feature-text">
+<div class="kicker">Reliability</div>
+<h3>Built to run unattended</h3>
+</div>
+<div class="feature-text">
+<p>The hub is offline-first: every record is saved on the device before any upload is attempted. If the van loses signal, logging carries on and the upload simply retries later, so no data is lost.</p>
+<p>It runs headless as a systemd service that starts at boot, restarts after a crash and logs to the system journal. Bad or missing sensor readings are caught and recorded instead of stopping the loop. For maintenance, Tailscale gives secure remote SSH access over 4G, wherever the van is.</p>
+<div class="chips"><span>Offline-first</span><span>systemd auto-restart</span><span>Error-tolerant parsing</span><span>Tailscale remote SSH</span></div>
+</div>
+</section>
+
+<!-- 5. Next -->
+<section class="feature solo">
+<div class="feature-text">
+<div class="kicker">Next</div>
+<h3>Towards energy-aware cooling</h3>
+</div>
+<div class="feature-text">
+<p>The design leaves room to grow. An INA219 power monitor is wired into the architecture for battery and solar telemetry, and the flow above ends in cooling-control commands. The aim is a digital twin of each van that can adjust the refrigeration compressor based on load, weather and route, saving energy without risking the cargo.</p>
+</div>
+</section>
+
+<section class="sec"><div class="sec-head"><code>/stack</code><h2>Tools</h2></div>
+<div class="toolbox">
+<div class="tool-group"><h4>Hardware</h4><div class="tools"><span>Raspberry Pi 4</span><span>SHT31</span><span>DS18B20</span><span>M8N GPS</span><span>PYR20 pyranometer</span><span>Reed switch</span><span>SIM7600G-H 4G</span></div></div>
+<div class="tool-group"><h4>Interfaces</h4><div class="tools"><span>I2C</span><span>1-Wire</span><span>UART / NMEA</span><span>GPIO</span><span>RS485 Modbus</span><span>4G LTE</span></div></div>
+<div class="tool-group"><h4>Software</h4><div class="tools"><span>Python</span><span>systemd</span><span>rclone</span><span>JSON Lines</span><span>OpenRouteService</span><span>Tailscale</span><span>SQL</span></div></div>
+</div>
+</section>
+
 <section class="sec"><nav class="pager" aria-label="More projects">
 <a href="imu-glove.html"><span>← previous</span>Wearable IMU Glove</a>
 <a class="next" href="sailboat.html"><span>next →</span>Autonomous Sailboat</a>
 </nav></section>
 <footer>© 2026 Farhad Foroutan · <a href="../index.html">home</a></footer>
 </main>
-<script src="../assets/bg.js?v=2"></script>
-
+<script src="../assets/bg.js?v=3"></script>
 </body>
 </html>

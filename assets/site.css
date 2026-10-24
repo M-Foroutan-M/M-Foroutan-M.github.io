@@ -339,3 +339,12 @@ h2{font-size:1.9rem}
 .credit-line a{color:var(--muted)}
 .credit-line a:hover{color:var(--accent)}
 @media (max-width:640px){.parts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* project page: code panel (JSON record) */
+.code-panel{border:1px solid var(--line);background:var(--surface);padding:18px 20px;overflow-x:auto}
+.code-panel pre{margin:0;font-family:var(--f-mono);font-size:12.5px;line-height:1.65;color:var(--ink);white-space:pre}
+.code-panel .k{color:var(--accent)}
+.code-panel .s{color:var(--ax-y)}
+.code-panel .n{color:var(--warm)}
+.code-panel .b{color:var(--ax-x)}
+.code-panel .c{color:var(--muted)}
